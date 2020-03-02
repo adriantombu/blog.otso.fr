@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="og:title" content="Déployer avec Git sur un hébergement FTP" />
+    <meta name="og:url" content="http://otso.fr/2015-12-02-deployer-avec-git-sur-un-hebergement-ftp.html" />
+    <meta name="og:site_name" content="Blob Trotter" />
+
+    
+    <meta name="description" content="L’utilisation de git-ftp simplifie grandement la mise en ligne de fichiers en FTP" />
+    <meta name="og:description" content="L’utilisation de git-ftp simplifie grandement la mise en ligne de fichiers en FTP" />
+     
+    <meta name="robots" content="index, follow" />
+     
+    <meta name="og:type" content="article" />
+      
+    <meta name="twitter:card" content="summary" />
+     
+    <meta name="twitter:site" content="@adriantombu" />
+     
+    <meta name="twitter:creator" content="@adriantombu" />
+    
+
+    <title>Déployer avec Git sur un hébergement FTP - Blob Trotter</title>
+
+    <link rel="icon" href="./favicon.png" />
+    <link href="./style.css" rel="stylesheet" type="text/css" />
+    <link rel="canonical" href="http://otso.fr/2015-12-02-deployer-avec-git-sur-un-hebergement-ftp.html" />
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <a href="https://otso.fr">Accueil</a> &bull;
+        <a href="https://otso.fr/index-en.html">In English</a> &bull; Blog
+        &bull;
+        <a href="https://otso.fr/conditions-generales-de-vente.html">CGV</a>
+        &bull;
+        <a href="https://otso.fr/mentions-legales.html">Mentions légales</a>
+      </nav>
+    </header>
+
+    <article>
+      <h1>Déployer avec Git sur un hébergement FTP</h1>
+
+<blockquote>
+<p>tl;dr L’utilisation de git-ftp simplifie grandement la mise en ligne de fichiers en FTP</p>
+</blockquote>
+
+<p>Parfois, suivant le projet, il n’est pas possible de récupérer des accès SSH pour procéder à des <strong>mises en lignes facile via Git</strong>, ou d’utiliser des <strong>outils de déploiement automatisée</strong> tels que Heroku ou <a href="http://blog.otso.fr/2015-12-02-deployer-avec-git-sur-un-hebergement-ftp.html">Dokku</a>. Jusqu’à présent, je rongeais mon frein et faisais donc des glisser-déplacer à l’ancienne dans mon logiciel FTP.</p>
+
+<p><img src="images/2015-12-02-deployer-avec-git-sur-un-hebergement-ftp/old-star-wars-guy.jpg" alt="" /></p>
+
+<p>C’est en faisant quelques recherches pour <strong>améliorer ce process de déploiement</strong> que je suis tombé sur le <strong>dépôt <a href="https://github.com/git-ftp/git-ftp">git-ftp</a></strong>, un script shell qui combine la <strong>puissance de Git</strong> avec la mise en ligne via FTP.</p>
+
+<p>Toute l’efficacité de cet outil réside dans le fait qu’il ne met en ligne que les <strong>fichiers qui ont été modifiés</strong>, à l’aide d’une simple commande dans le terminal. Je l’utilise actuellement sur un projet important pour faire les <strong>mises en pré-production</strong> sur le serveur du client, ce qui m’offre un réel gain de productivité.</p>
+
+<p>L’installation et la configuration sont assez simples, et tout est clairement détaillé dans <a href="https://github.com/git-ftp/git-ftp/blob/develop/INSTALL.md">le fichier INSTALL.md</a> du dépôt. Etant utilisateur Mac OSX, j’ai simplement utilisé Homebrew.</p>
+
+<pre><code>brew install git brew install curl --with-ssl --with-libssh2 brew install git-ftp
+</code></pre>
+
+<p>Ensuite, il vous suffira de vous rendre dans votre projet Git, et d’initialiser git-ftp.</p>
+
+<pre><code>git ftp init -u &lt;user&gt; -p &lt;password&gt; ftp://host.example.com/public_html
+</code></pre>
+
+<p>Un petit git ftp push vous permettra ensuite de lancer le déploiement vers votre FTP.</p>
+
+<pre><code>git ftp push -u &lt;user&gt; -p &lt;password&gt; ftp://host.example.com/public_html
+</code></pre>
+
+<p>Afin d’éviter de renseigner à chaque fois les infos de connexion et le host, vous pouvez enregistrer ces informations en <strong>variable de configuration de votre dépôt Git</strong>.</p>
+
+<pre><code>git config git-ftp.user john git config git-ftp.url ftp.example.com
+git config git-ftp.password secr3t git config git-ftp.syncroot path/dir
+</code></pre>
+
+<p>Si vous voulez aller plus loin, vous trouverez toute la documentation et plus d’exemples <a href="https://github.com/git-ftp/git-ftp/blob/develop/man/git-ftp.1.md">dans le manuel utilisateur</a>.</p>
+
+    </article>
+
+    <footer>
+      <nav>
+        
+        <p>
+          <a href="2015-12-05-la-recherche-demploi-quand-on-n-a-aucune-experience.html"
+            >&lt;&lt; La recherche d’emploi quand on n’a aucune expérience</a
+          >
+        </p>
+         
+        <p>
+          <a href="2015-09-18-seafile-le-dropbox-open-source-auto-heberge.html"
+            >Seafile, le Dropbox open-source auto-hébergé &gt;&gt;</a
+          >
+        </p>
+        
+      </nav>
+    </footer>
+  </body>
+</html>

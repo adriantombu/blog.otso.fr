@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="og:title" content="Le HTTPS expliqué avec des pigeons voyageurs" />
+    <meta name="og:url" content="http://otso.fr/2018-07-27-le-https-explique-avec-des-pigeons-voyageurs.html" />
+    <meta name="og:site_name" content="Blob Trotter" />
+
+    
+    <meta name="description" content="La cryptographie est complexe à appréhender, rien de tel que des pigeons voyageurs pour en expliquer son fontionnement !" />
+    <meta name="og:description" content="La cryptographie est complexe à appréhender, rien de tel que des pigeons voyageurs pour en expliquer son fontionnement !" />
+     
+    <meta name="robots" content="index, follow" />
+     
+    <meta name="og:type" content="article" />
+      
+    <meta name="twitter:card" content="summary" />
+     
+    <meta name="twitter:site" content="@adriantombu" />
+     
+    <meta name="twitter:creator" content="@adriantombu" />
+    
+
+    <title>Le HTTPS expliqué avec des pigeons voyageurs - Blob Trotter</title>
+
+    <link rel="icon" href="./favicon.png" />
+    <link href="./style.css" rel="stylesheet" type="text/css" />
+    <link rel="canonical" href="http://otso.fr/2018-07-27-le-https-explique-avec-des-pigeons-voyageurs.html" />
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <a href="https://otso.fr">Accueil</a> &bull;
+        <a href="https://otso.fr/index-en.html">In English</a> &bull; Blog
+        &bull;
+        <a href="https://otso.fr/conditions-generales-de-vente.html">CGV</a>
+        &bull;
+        <a href="https://otso.fr/mentions-legales.html">Mentions légales</a>
+      </nav>
+    </header>
+
+    <article>
+      <h1>Le HTTPS expliqué avec des pigeons voyageurs</h1>
+
+<p><img src="images/2018-07-27-le-https-explique-avec-des-pigeons-voyageurs/pigeon-voyageur.png" alt="Photo de Jose Fontano sur Unsplash" /></p>
+
+<blockquote>
+<p>Ce texte est une traduction de l’article <a href="https://medium.freecodecamp.org/https-explained-with-carrier-pigeons-7029d2193351">HTTPS explained with carrier pigeons</a> écrit par <a href="https://medium.freecodecamp.org/@zanin_andrea">Andrea Zanin</a></p>
+</blockquote>
+
+<p>La cryptographie peut être un sujet complexe à appréhender. C’est généralement rempli de démonstrations mathématiques. A moins de travailler dans le développement de systèmes cryptographiques, la majorité de cette complexité n’est pas nécessaire pour comprendre ce qu’il se passe au plus haut niveau.</p>
+
+<p>Si vous avez ouvert cet article en espérant créer le prochain protocole HTTPS, je suis désolé de vous dire que les pigeons ne seront pas suffisants. Dans le cas contraire, préparez-vous un café et profitez de l’article.</p>
+
+<h2>Alice, Bob et … des pigeons ?</h2>
+
+<p>Chaque activité que vous effectuez sur Internet (lire cet article, acheter des trucs sur Amazon, uploader des photos de chat) peut être résumée au fait d’envoyer et recevoir des messages vers et depuis un serveur.</p>
+
+<p>Cette notion pouvant être un peu abstraite, imaginons plutôt que ces messages sont livrés par des <strong>pigeons voyageurs</strong>. Cela peut sembler très arbitraire, mais croyez moi, le HTTPS fonctionne de la même manière, quoiqu’un peu plus rapidement.</p>
+
+<p>De plus, au lieu de parler de serveurs, clients et hackers, nous parleront d’Alice, Bob et Mallory. Si ce n’est pas la première fois que vous tentez de comprendre les concepts de la cryptographie, vous reconnaîtrez certainement ces noms car ils sont très largement utilisés dans la littérature technique.</p>
+
+<h2>Une première communication très simple</h2>
+
+<p>Si Alice souhaite envoyer un message à Bob, elle attache le message sur la patte du pigeon voyageur et l’envoie à Bob. Bob reçoit le message, le lit et tout va bien.</p>
+
+<p>Mais que ce passe-t-il si Mallory intercepte le pigeon d’Alice en vol et change le message ? Bob n’aurait aucune manière de savoir que le message envoyé par Alice a été modifié durant le voyage.</p>
+
+<p>C’est comme cela que fonctionne le <strong>HTTP</strong>. Ca fait peur hein ? Je n’enverrais jamais mes identifiants bancaires en HTTP, et vous ne devriez pas non plus.</p>
+
+<h2>Un code secret</h2>
+
+<p>Que se passe-t-il désormais si Alice et Bob sont plus rusés ? Il se mettent d’accord sur le fait d’écrire leurs messages en utilisant un code secret. Ils décaleront chaque lettre de 3 positions dans l’alphabet. Par exemple D → A, E → B, F → C. Le texte “secret message” devient donc “pbzobq jbppxdb”.</p>
+
+<p>Désormais, si Mallory intercepte le pigeon, elle ne sera plus capable de modifier le message en quelque chose d’intelligible, et encore moins d’en comprendre sa signification, car elle ne connait pas le code utilisé. Bob, lui, peut simplement appliquer le code à l’envers et déchiffrer le message où A → D, B → E, C → F. Le texte chiffré “pbzobq jbppxdb” retrouve donc sa forme originale de “secret message”.</p>
+
+<p>Victoire !</p>
+
+<p>Cette technique est appelée la <strong>cryptographie à clé symétrique</strong>, car si vous savez comment chiffrer un message, vous savez comment le déchiffrer également.</p>
+
+<p>Le code décrit ci-dessus est plus communément connu sous le nom de <strong>Chiffre de César</strong>. Dans la vie réelle, nous utilisons des codes bien plus sophistiqués et complexes, mais l’idée principale reste la même.</p>
+
+<h2>Comment définir la clé ?</h2>
+
+<p>La cryptographie à clé symétrique est très sécurisée si personne d’autre à part l’envoyeur et le receveur ne sait quelle clé est utilisée. Dans le cas du Chiffre de César, <strong>la clé est le nombre de lettres de décalage</strong> appliqué à chaque lettre du message. Dans notre exemple, nous avons utilisé un décalage de 3, mais nous aurions pu également utiliser 4 ou 12.</p>
+
+<p>Le problème survient lorsqu’Alice et Bob ne se sont pas rencontrés avant de commencer à s’envoyer des messages par pigeon interposé, car il n’ont eu aucune possibilité de définir une clé de manière sécurisée. S’ils envoient la clé dans le message, Mallory pourrait intercepter le message et découvrir la clé. Cela permettrait à Mallory de lire ou modifier le message comme elle le souhaite avant et après qu’Alice et Bob commencent à chiffrer leurs messages.</p>
+
+<p>C’est l’exemple type d’une attaque **de l’homme du Milieu **(<em>Man In The Middle Attack</em>) et la seule façon de l’éviter est de changer complètement de système de chiffrement.</p>
+
+<h2>Des pigeons transportant des boîtes</h2>
+
+<p>Face à ce problème, Alice et Bob décident d’un système encore plus sécurisé. Quand Bob veut envoyer un message à Alice, voici la procédure qu’il suivra :</p>
+
+<ul>
+<li><p>Bob envoie un pigeon à Alice sans aucun message.</p></li>
+
+<li><p>Alice renvoie le pigeon portant une boîte avec un cadenas ouvert, tout en gardant la clé.</p></li>
+
+<li><p>Bob place le message dans la boîte, referme le cadenas, et envoie la boîte à Alice.</p></li>
+
+<li><p>Alice reçoit la boite, l’ouvre avec sa clé, et lit le message.</p></li>
+</ul>
+
+<p>De cette manière, Mallory ne peut pas modifier le message en interceptant le pigeon, car elle ne possède pas la clé. La même procédure est suivie par Alice lorsqu’elle souhaite envoyer un message à Bob</p>
+
+<p>Alice et Bob viennent d’utiliser ce qui est plus communément connu sous le nom de <strong>cryptographie à clé asymétrique</strong>. Le côté asymétrique venant du fait que même si vous pouvez chiffrer un message (fermer le cadenas), vous ne pouvez pas le déchiffrer (ouvrir une boîte cadenassée).
+Dans le langage technique, la boîte est connue sous le nom de <strong>clé publique</strong>, et la clé pour l’ouvrir sous le nom de <strong>clé privée</strong>.</p>
+
+<h2>Comment faire confiance à la boîte ?</h2>
+
+<p>Si vous avez bien suivi, vous avez peut-être compris que nous avons toujours un problème. Lorsque Bob reçoit cette boîte ouverte, comment peut-il être certain que celle-ci vient d’Alice et que Mallory n’a pas intercepté le pigeon et échangé la boîte avec une boîte dont elle possède la clé ?</p>
+
+<p>Alice décide donc de signer la boîte. De cette manière, lorsque Bob la recevra, il pourra vérifier la signature et avoir la certitude que c’est bien Alice qui lui a envoyé.</p>
+
+<p>Certains d’entre vous pourraient se demander comment Bob est capable de vérifier la signature d’Alice en premier lieu ? Excellente question. Alice et Bob ont également rencontré ce problème, et ils ont décidé qu’au lieu de laisser Alice signer la boîte, Ted s’en chargera.</p>
+
+<p>Mais, qui est Ted ? Ted es un gars très célèbre, reconnu et de confiance. Ted a donné sa signature à tout le monde, et tout le monde sait qu’il ne signera que des boîtes de personnes légitimes.</p>
+
+<p>Ted ne signera une boîte d’Alice que s’il est certain que la personne qui demande cette signature est bien Alice. Mallory ne peut donc pas récupérer de boîte d’Alice signée par Ted, car Bob saura que la boîte est fausse étant donné que Ted ne signe que des boîtes après avoir vérifié l’identité des personnes.</p>
+
+<p>En termes techniques, Ted est plus communément connu sous le nom d’<strong>Autorité de Certification</strong> (<em>Certification Authority</em>), et le navigateur depuis lequel vous lisez cet article est livré avec les signatures de différentes Autorités de Certification.</p>
+
+<p>Lorsque vous vous connectez à un site internet pour la première fois, vous faites confiance à sa boîte parce que vous faites confiances à Ted, et Ted vous confirme que cette boîte est légitime.</p>
+
+<h2>Les boîtes sont lourdes</h2>
+
+<p>Alice et Bob ont désormais un système fiable pour communiquer, mais ils se rendent comptent que les pigeons qui transportent des boîtes sont bien plus lents que ceux ne portant que le message.</p>
+
+<p>Ils décident donc qu’ils n’utiliseront la méthode de la boîte (cryptographie asymétrique) que pour choisir une clé qui sera ensuite utilisée pour chiffrer le message grâce à la cryptographie symétrique (vous vous rappelez du Chiffre de César ?)</p>
+
+<p>De cette manière, ils obtiennent le meilleur des deux mondes. La fiabilité de la cryptographie asymétrique, et l’efficacité de la cryptographie symétrique.</p>
+
+<p>Dans le monde réel, il n’y a pas de pigeons lents. Néanmoins, chiffrer des messages en utilisant la cryptographie asymétrique est plus lent que d’utiliser la cryptographie symétrique: nous ne l’utilisons donc que pour échanger les clés de chiffrement.</p>
+
+<p>Vous savez désormais comment fonctionne le <strong>HTTPS</strong>, et votre café devrait être prêt. Vous avez bien mérité de le boire 😉</p>
+
+    </article>
+
+    <footer>
+      <nav>
+        
+        <p>
+          <a href="2018-08-15-une-introduction-rapide-a-la-securite-web.html"
+            >&lt;&lt; Une introduction rapide à la sécurité web</a
+          >
+        </p>
+         
+        <p>
+          <a href="2018-04-25-il-est-temps-dabandonner-le-rtfm.html"
+            >Il est temps d’abandonner le “RTFM” &gt;&gt;</a
+          >
+        </p>
+        
+      </nav>
+    </footer>
+  </body>
+</html>

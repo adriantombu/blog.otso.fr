@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="og:title" content="Dokku, le déploiement pour les nuls ! (introduction)" />
+    <meta name="og:url" content="http://otso.fr/2015-08-07-dokku-le-deploiement-pour-les-nuls-introduction.html" />
+    <meta name="og:site_name" content="Blob Trotter" />
+
+    
+    <meta name="description" content="Le FTP c’est has been, ‘git push dokku master’ c’est l’avenir !" />
+    <meta name="og:description" content="Le FTP c’est has been, ‘git push dokku master’ c’est l’avenir !" />
+     
+    <meta name="robots" content="index, follow" />
+     
+    <meta name="og:type" content="article" />
+      
+    <meta name="twitter:card" content="summary" />
+     
+    <meta name="twitter:site" content="@adriantombu" />
+     
+    <meta name="twitter:creator" content="@adriantombu" />
+    
+
+    <title>Dokku, le déploiement pour les nuls ! (introduction) - Blob Trotter</title>
+
+    <link rel="icon" href="./favicon.png" />
+    <link href="./style.css" rel="stylesheet" type="text/css" />
+    <link rel="canonical" href="http://otso.fr/2015-08-07-dokku-le-deploiement-pour-les-nuls-introduction.html" />
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <a href="https://otso.fr">Accueil</a> &bull;
+        <a href="https://otso.fr/index-en.html">In English</a> &bull; Blog
+        &bull;
+        <a href="https://otso.fr/conditions-generales-de-vente.html">CGV</a>
+        &bull;
+        <a href="https://otso.fr/mentions-legales.html">Mentions légales</a>
+      </nav>
+    </header>
+
+    <article>
+      <h1>Dokku, le déploiement pour les nuls ! (introduction)</h1>
+
+<blockquote>
+<p>tl;dr Le FTP c’est has been, ‘git push dokku master’ c’est l’avenir !</p>
+</blockquote>
+
+<h2>Le déploiement, avant</h2>
+
+<p>Dans un passé pas si lointain, les <strong>mises en production</strong> (<em>le vendredi soir</em>) étaient toujours le moment que toute l’équipe tech redoutait.</p>
+
+<p>Après avoir effectué son glissé-déposé des fichiers dans son logiciel FTP, on serrait les fesses et on attendait que les 3000 fichiers soient mis en ligne. En général il fallait s’y reprendre à plusieurs reprises à cause des <strong>erreurs de transfert</strong>. Et puis des fois ça plantait, à cause d’une version PHP pas compatible avec certaines fonctions récentes utilisées, ou des extensions pas installées.</p>
+
+<p>En bref, un <strong>vrai cauchemar</strong>, et énormément de temps perdu.</p>
+
+<h2>Le déploiement, aujourd’hui</h2>
+
+<p>Oubliez ces <strong>terribles moments</strong> que vous avez certainement vécu (<em>j’en rêve encore la nuit</em>), car désormais le déploiement c’est devenu vraiment <strong>pour les nuls</strong> :</p>
+
+<pre><code>git push dokku master
+</code></pre>
+
+<p>Vous voulez apprendre la <strong>recette magique</strong> pour arriver à ce résultat ? Suivez le guide !</p>
+
+<p><img src="images/2015-08-07-dokku-le-déploiement-pour-les-nuls-introduction/bob-eponge-arc-en-ciel.gif" alt="" /></p>
+
+<h2>Qu’est-ce que Dokku ?</h2>
+
+<p>Comme indiqué sur leur <a href="https://github.com/progrium/dokku">dépôt Github</a>, Dokku est un clone du célèbre <a href="https://www.heroku.com/">Heroku</a>, une plateforme de type Paas (<a href="https://en.wikipedia.org/wiki/Platform_as_a_service">plateforme as a service</a>).</p>
+
+<p>En utilisant Heroku pour vos déploiements, vous vous occupez uniquement de la partie <strong>développement de votre application</strong> : plus de prise de tête avec la gestion du serveur, les modules manquants, les mises à jour, etc. Le rêve !</p>
+
+<p>Sauf que niveau tarif ça peut rapidement grimper. Il y a bien une instance gratuite, mais elle s’éteint automatiquement après 1h30 sans visites. L’offre suivante s’élève à 7\$ / mois / application.</p>
+
+<p>C’est là qu’apparaît Dokku, qui fait la même chose, mais en <strong>open-source</strong> !</p>
+
+<h2>La recette du déploiement parfait</h2>
+
+<h3>1. Installer dokku sur votre serveur</h3>
+
+<p>Depuis plusieurs mois j’utilise <a href="https://www.digitalocean.com/?refcode=8f4dbd7cf40b">Digital Ocean</a> (lien sponsorisé) comme <strong>hébergeur de VPS</strong>. Celui-ci offre, entre autres, des installations d’applications en un click. Il existe bien un <a href="https://www.digitalocean.com/features/one-click-apps/dokku/">droplet Dokku</a>, mais dans ce tutorial j’utiliserai sa version améliorée <a href="https://github.com/dokku-alt/dokku-alt">dokku-alt</a> qui offre de nombreux plugins préinstallés.</p>
+
+<p>Vous pouvez donc choisir une simple distribution Ubuntu 14.04, avec l’offre à 5\$ / mois.</p>
+
+<p>Pour installer Dokku-alt, <strong>connectez vous en SSH</strong> sur votre serveur fraîchement installé, et lancez la commande suivante :</p>
+
+<pre><code>sudo bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/dokku-alt/dokku-alt/master/bootstrap.sh)&quot;
+</code></pre>
+
+<p>A la fin de l’installation, il vous sera demandé de vous connecter à l’url suivante :</p>
+
+<pre><code>http://&lt;ip-du-serveur&gt;:2000/
+</code></pre>
+
+<p>Vous pourrez ajouter votre <strong>clé SSH</strong> (<em>champ rempli automatiquement sur Digital Ocean</em>), ainsi que renseigner un <strong>nom de domaine</strong> que vous souhaitez utiliser à la place de l’adresse IP du serveur.</p>
+
+<p><img src="images/2015-08-07-dokku-le-déploiement-pour-les-nuls-introduction/dokku-setup.png" alt="Finalisation de l’installation" /></p>
+
+<p>Pour les besoin de cet article, nous partirons du principe que le serveur est accessible via l’url <strong>dokku.me</strong></p>
+
+<h3>2. Déployer votre application</h3>
+
+<p>En tant que bon développeur, vous aurez versionné votre projet sous Git. Si vous ne connaissez pas cet <strong>outil indispensable</strong>, je vous conseille de <a href="https://git-scm.com/documentation">vous y mettre dès aujourd’hui</a> !</p>
+
+<p>Tout d’abord, <strong>lancez votre terminal</strong> et positionnez vous dans le dossier de votre application. Ajoutez ensuite un <strong>dépot distant</strong> qui pointera sur le serveur où vous avez installé Dokku.</p>
+
+<pre><code>git remote add dokku [email protected]:my-app
+</code></pre>
+
+<p>Finalement, vous pouvez enfin sortir votre baguette magique et invoquer le fameux <strong>push magique</strong> !</p>
+
+<pre><code>git push dokku master
+</code></pre>
+
+<p>Dokku va s’occuper automatiquement de toute la partie <strong>déploiement de votre application</strong>. Celui-ci détectera automatiquement le langage que vous utilisez et effectuera les <strong>actions nécessaires</strong> en conséquence (<em>installer les dépendances composer en PHP, builder son application Jekyll, …</em>) dans un <a href="https://www.docker.com/">container Docker</a>.</p>
+
+<p>Une fois terminé, vous pourrez accéder à votre application fraîchement déployée à l’url suivante :</p>
+
+<pre><code>http://my-app.dokku.me
+</code></pre>
+
+<p>Et voilà, le déploiement <strong>en toute simplicité</strong> !</p>
+
+<h2>Coming some day</h2>
+
+<p>Aujourd’hui, je vous ai posé les bases de l’utilisation de Dokku. C’est bien, mais on peut faire beaucoup mieux ! Dans un prochain article, je vous expliquerai plein de choses <strong>super chouettes</strong> que l’on peut faire avec cet outil :</p>
+
+<ul>
+<li>créer une base de données</li>
+<li>utiliser un nom de domaine custom pour votre application déployée</li>
+<li>installer des extensions, choisir sa version de PHP, etc.</li>
+<li>mettre en place des volumes persistants entre les déploiements</li>
+<li>ajouter des variables d’environnement</li>
+</ul>
+
+<p>A bientôt, pour un nouvel épisode !</p>
+
+<p><img src="images/2015-08-07-dokku-le-déploiement-pour-les-nuls-introduction/sheldon-content.gif" alt="" /></p>
+
+    </article>
+
+    <footer>
+      <nav>
+        
+        <p>
+          <a href="2015-08-28-comment-jai-exporte-mon-site-wordpress-sous-jekyll.html"
+            >&lt;&lt; Comment j’ai exporté mon site Wordpress sous Jekyll</a
+          >
+        </p>
+         
+        <p>
+          <a href="2015-07-27-enjoy-rouen-normandy.html"
+            >Enjoy Rouen Normandy &gt;&gt;</a
+          >
+        </p>
+        
+      </nav>
+    </footer>
+  </body>
+</html>

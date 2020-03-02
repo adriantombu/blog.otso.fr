@@ -1,0 +1,13 @@
+base_url: http://otso.fr/
+site_name: Blob Trotter
+theme: otso
+
+robots: index, follow
+
+opengraph:
+  type: article
+
+twitter:
+  card: summary
+  creator: adriantombu
+  site: adriantombu
