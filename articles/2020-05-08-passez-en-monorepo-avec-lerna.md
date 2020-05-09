@@ -36,7 +36,7 @@ Maintenant que vous en savez plus sur le côté théorique, il est temps de pass
 
 ## Un monorepo en pratique
 
-Il existe différentes manières de gérer un monorepo, et dans cet article je me contenterai d'utiliser [Lerna](https://lerna.js.org/) qui est dédié aux **monorepos de projets JavaScript**. Il existe évidemment d'autres façons de gérer un mono repo : [Yarn worskpaces](https://classic.yarnpkg.com/en/docs/workspaces/), [Bit](https://github.com/teambit/bit), [Bazel](https://bazel.build/) et [bien d'autres](https://github.com/korfuri/awesome-monorepo)...
+Il existe différentes manières de gérer un monorepo, et dans cet article je me contenterai d'utiliser [Lerna](https://lerna.js.org/) qui est dédié aux **monorepos de projets JavaScript**. Il existe évidemment d'autres façons de gérer un monorepo : [Yarn worskpaces](https://classic.yarnpkg.com/en/docs/workspaces/), [Bit](https://github.com/teambit/bit), [Bazel](https://bazel.build/) et [bien d'autres](https://github.com/korfuri/awesome-monorepo)...
 
 ### Initialiser son premier monorepo
 
