@@ -2,78 +2,83 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
         <loc>http://otso.fr/index.html</loc>
-        <lastmod>2020-03-02T19:46:06+01:00</lastmod>
+        <lastmod>2020-05-09T14:24:44+02:00</lastmod>
+        <priority>1.00</priority>
+    </url>
+    <url>
+        <loc>http://otso.fr/2020-05-08-passez-en-monorepo-avec-lerna.html</loc>
+        <lastmod>2020-05-09T14:24:44+02:00</lastmod>
         <priority>1.00</priority>
     </url>
     <url>
         <loc>http://otso.fr/2019-12-26-top-10-erreurs-communes-projets-golang.html</loc>
         <lastmod>2020-03-02T19:46:06+01:00</lastmod>
-        <priority>1.00</priority>
+        <priority>0.80</priority>
     </url>
     <url>
         <loc>http://otso.fr/2018-10-17-quelques-mythes-sur-le-travail-en-remote.html</loc>
         <lastmod>2020-03-02T19:46:58+01:00</lastmod>
-        <priority>0.80</priority>
+        <priority>0.64</priority>
     </url>
     <url>
         <loc>http://otso.fr/2018-08-15-une-introduction-rapide-a-la-securite-web.html</loc>
         <lastmod>2020-03-02T19:47:35+01:00</lastmod>
-        <priority>0.64</priority>
+        <priority>0.51</priority>
     </url>
     <url>
         <loc>http://otso.fr/2018-07-27-le-https-explique-avec-des-pigeons-voyageurs.html</loc>
         <lastmod>2020-03-02T19:48:29+01:00</lastmod>
-        <priority>0.51</priority>
+        <priority>0.41</priority>
     </url>
     <url>
         <loc>http://otso.fr/2018-04-25-il-est-temps-dabandonner-le-rtfm.html</loc>
         <lastmod>2020-03-02T19:49:24+01:00</lastmod>
-        <priority>0.41</priority>
+        <priority>0.33</priority>
     </url>
     <url>
         <loc>http://otso.fr/2016-11-21-ameliorez-votre-productivite-grace-au-principe-de-linbox-zero.html</loc>
         <lastmod>2020-03-02T19:50:08+01:00</lastmod>
-        <priority>0.33</priority>
+        <priority>0.26</priority>
     </url>
     <url>
         <loc>http://otso.fr/2016-10-24-mettre-laravel-manuellement-en-maintenance.html</loc>
         <lastmod>2020-03-02T19:50:35+01:00</lastmod>
-        <priority>0.26</priority>
+        <priority>0.21</priority>
     </url>
     <url>
         <loc>http://otso.fr/2016-10-17-mon-interview-a-la-cantine-nwx.html</loc>
         <lastmod>2020-03-02T19:51:05+01:00</lastmod>
-        <priority>0.21</priority>
+        <priority>0.17</priority>
     </url>
     <url>
         <loc>http://otso.fr/2016-07-06-la-validation-par-form-request-dans-laravel-5.html</loc>
         <lastmod>2020-03-02T19:51:34+01:00</lastmod>
-        <priority>0.17</priority>
+        <priority>0.13</priority>
     </url>
     <url>
         <loc>http://otso.fr/2015-12-23-pourquoi-je-ne-reponds-plus-au-telephone.html</loc>
         <lastmod>2020-03-02T19:51:52+01:00</lastmod>
-        <priority>0.13</priority>
+        <priority>0.11</priority>
     </url>
     <url>
         <loc>http://otso.fr/2015-12-05-la-recherche-demploi-quand-on-n-a-aucune-experience.html</loc>
         <lastmod>2020-03-02T19:52:06+01:00</lastmod>
-        <priority>0.11</priority>
+        <priority>0.09</priority>
     </url>
     <url>
         <loc>http://otso.fr/2015-12-02-deployer-avec-git-sur-un-hebergement-ftp.html</loc>
         <lastmod>2020-03-02T19:52:17+01:00</lastmod>
-        <priority>0.09</priority>
+        <priority>0.07</priority>
     </url>
     <url>
         <loc>http://otso.fr/2015-09-18-seafile-le-dropbox-open-source-auto-heberge.html</loc>
         <lastmod>2020-03-02T19:52:27+01:00</lastmod>
-        <priority>0.07</priority>
+        <priority>0.05</priority>
     </url>
     <url>
         <loc>http://otso.fr/2015-08-28-comment-jai-exporte-mon-site-wordpress-sous-jekyll.html</loc>
         <lastmod>2020-03-02T19:52:40+01:00</lastmod>
-        <priority>0.05</priority>
+        <priority>0.04</priority>
     </url>
     <url>
         <loc>http://otso.fr/2015-08-07-dokku-le-deploiement-pour-les-nuls-introduction.html</loc>
@@ -83,11 +88,11 @@
     <url>
         <loc>http://otso.fr/2015-07-27-enjoy-rouen-normandy.html</loc>
         <lastmod>2020-03-02T19:53:03+01:00</lastmod>
-        <priority>0.04</priority>
+        <priority>0.03</priority>
     </url>
     <url>
         <loc>http://otso.fr/2015-07-21-welcome-to-my-life.html</loc>
         <lastmod>2020-03-02T19:53:15+01:00</lastmod>
-        <priority>0.03</priority>
+        <priority>0.02</priority>
     </url>
 </urlset>
