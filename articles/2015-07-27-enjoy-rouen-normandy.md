@@ -2,6 +2,8 @@
 title: Enjoy Rouen Normandy
 description: Depuis juin 2015, je fais partie des embassadeurs pionniers de la marque territoriale de Rouen
 published_at: 2015-07-27
+opengraph:
+  image: https://blog.otso.fr/images/2015-07-27-enjoy-rouen-normandy/logo-enjoy-rouen-normandie.png
 ---
 
 # Enjoy Rouen Normandy

@@ -2,6 +2,8 @@
 title: Mon interview à la Cantine NWX
 description: Un peu d'auto-promo
 published_at: 2016-10-17
+opengraph:
+  image: https://blog.otso.fr/images/2016-10-17-mon-interview-a-la-cantine-nwx/stupid-man-having-fun.jpg
 ---
 
 # Mon interview à la Cantine #NWX

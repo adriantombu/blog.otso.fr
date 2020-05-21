@@ -2,6 +2,8 @@
 title: Pourquoi je ne réponds plus au téléphone
 description: Parce que !
 published_at: 2015-12-23
+opengraph:
+  image: https://blog.otso.fr/images/2015-12-23-pourquoi-je-ne-reponds-plus-au-telephone/please-stop-calling-me.gif
 ---
 
 # Pourquoi je ne réponds plus au téléphone

@@ -2,97 +2,97 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
         <loc>https://blog.otso.fr/index.html</loc>
-        <lastmod>2020-05-21T13:49:20+02:00</lastmod>
+        <lastmod>2020-05-21T16:54:30+02:00</lastmod>
         <priority>1.00</priority>
     </url>
     <url>
         <loc>https://blog.otso.fr/2020-05-08-passez-en-monorepo-avec-lerna.html</loc>
-        <lastmod>2020-05-21T13:49:20+02:00</lastmod>
+        <lastmod>2020-05-21T16:54:30+02:00</lastmod>
         <priority>1.00</priority>
     </url>
     <url>
         <loc>https://blog.otso.fr/2019-12-26-top-10-erreurs-communes-projets-golang.html</loc>
-        <lastmod>2020-05-21T13:49:56+02:00</lastmod>
+        <lastmod>2020-05-21T17:02:50+02:00</lastmod>
         <priority>0.80</priority>
     </url>
     <url>
         <loc>https://blog.otso.fr/2018-10-17-quelques-mythes-sur-le-travail-en-remote.html</loc>
-        <lastmod>2020-05-21T13:49:55+02:00</lastmod>
+        <lastmod>2020-05-21T17:02:32+02:00</lastmod>
         <priority>0.64</priority>
     </url>
     <url>
         <loc>https://blog.otso.fr/2018-08-15-une-introduction-rapide-a-la-securite-web.html</loc>
-        <lastmod>2020-05-21T13:49:53+02:00</lastmod>
+        <lastmod>2020-05-21T17:02:16+02:00</lastmod>
         <priority>0.51</priority>
     </url>
     <url>
         <loc>https://blog.otso.fr/2018-07-27-le-https-explique-avec-des-pigeons-voyageurs.html</loc>
-        <lastmod>2020-05-21T13:49:50+02:00</lastmod>
+        <lastmod>2020-05-21T17:01:56+02:00</lastmod>
         <priority>0.41</priority>
     </url>
     <url>
         <loc>https://blog.otso.fr/2018-04-25-il-est-temps-dabandonner-le-rtfm.html</loc>
-        <lastmod>2020-05-21T13:49:49+02:00</lastmod>
+        <lastmod>2020-05-21T17:01:37+02:00</lastmod>
         <priority>0.33</priority>
     </url>
     <url>
         <loc>https://blog.otso.fr/2016-11-21-ameliorez-votre-productivite-grace-au-principe-de-linbox-zero.html</loc>
-        <lastmod>2020-05-21T13:49:47+02:00</lastmod>
+        <lastmod>2020-05-21T17:01:13+02:00</lastmod>
         <priority>0.26</priority>
     </url>
     <url>
         <loc>https://blog.otso.fr/2016-10-24-mettre-laravel-manuellement-en-maintenance.html</loc>
-        <lastmod>2020-05-21T13:49:45+02:00</lastmod>
+        <lastmod>2020-05-21T17:00:55+02:00</lastmod>
         <priority>0.21</priority>
     </url>
     <url>
         <loc>https://blog.otso.fr/2016-10-17-mon-interview-a-la-cantine-nwx.html</loc>
-        <lastmod>2020-05-21T13:49:44+02:00</lastmod>
+        <lastmod>2020-05-21T17:00:29+02:00</lastmod>
         <priority>0.17</priority>
     </url>
     <url>
         <loc>https://blog.otso.fr/2016-07-06-la-validation-par-form-request-dans-laravel-5.html</loc>
-        <lastmod>2020-05-21T13:49:42+02:00</lastmod>
+        <lastmod>2020-05-21T17:00:03+02:00</lastmod>
         <priority>0.13</priority>
     </url>
     <url>
         <loc>https://blog.otso.fr/2015-12-23-pourquoi-je-ne-reponds-plus-au-telephone.html</loc>
-        <lastmod>2020-05-21T13:49:40+02:00</lastmod>
+        <lastmod>2020-05-21T16:59:43+02:00</lastmod>
         <priority>0.11</priority>
     </url>
     <url>
         <loc>https://blog.otso.fr/2015-12-05-la-recherche-demploi-quand-on-n-a-aucune-experience.html</loc>
-        <lastmod>2020-05-21T13:49:38+02:00</lastmod>
+        <lastmod>2020-05-21T16:59:16+02:00</lastmod>
         <priority>0.09</priority>
     </url>
     <url>
         <loc>https://blog.otso.fr/2015-12-02-deployer-avec-git-sur-un-hebergement-ftp.html</loc>
-        <lastmod>2020-05-21T13:49:35+02:00</lastmod>
+        <lastmod>2020-05-21T16:58:55+02:00</lastmod>
         <priority>0.07</priority>
     </url>
     <url>
         <loc>https://blog.otso.fr/2015-09-18-seafile-le-dropbox-open-source-auto-heberge.html</loc>
-        <lastmod>2020-05-21T13:49:32+02:00</lastmod>
+        <lastmod>2020-05-21T16:58:32+02:00</lastmod>
         <priority>0.05</priority>
     </url>
     <url>
         <loc>https://blog.otso.fr/2015-08-28-comment-jai-exporte-mon-site-wordpress-sous-jekyll.html</loc>
-        <lastmod>2020-05-21T13:49:30+02:00</lastmod>
+        <lastmod>2020-05-21T16:58:15+02:00</lastmod>
         <priority>0.04</priority>
     </url>
     <url>
         <loc>https://blog.otso.fr/2015-08-07-dokku-le-deploiement-pour-les-nuls-introduction.html</loc>
-        <lastmod>2020-05-21T13:49:27+02:00</lastmod>
+        <lastmod>2020-05-21T16:57:27+02:00</lastmod>
         <priority>0.04</priority>
     </url>
     <url>
         <loc>https://blog.otso.fr/2015-07-27-enjoy-rouen-normandy.html</loc>
-        <lastmod>2020-05-21T13:49:24+02:00</lastmod>
+        <lastmod>2020-05-21T16:55:16+02:00</lastmod>
         <priority>0.03</priority>
     </url>
     <url>
         <loc>https://blog.otso.fr/2015-07-21-welcome-to-my-life.html</loc>
-        <lastmod>2020-05-21T13:49:22+02:00</lastmod>
+        <lastmod>2020-05-21T16:54:59+02:00</lastmod>
         <priority>0.02</priority>
     </url>
 </urlset>

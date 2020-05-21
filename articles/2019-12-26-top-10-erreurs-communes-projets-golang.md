@@ -2,6 +2,8 @@
 title: Les 10 erreurs les plus fréquentes que j'ai rencontrées sur des projets Go
 description: Cet article représente mon top 10 des erreurs les plus fréquemment rencontrées sur mes projets Go
 published_at: 2019-12-26
+opengraph:
+  image: https://blog.otso.fr/images/2019-12-26-top-10-erreurs-communes-projets-golang/facepalm.jpg
 ---
 
 # Les 10 erreurs les plus fréquentes que j'ai rencontrées sur des projets Go

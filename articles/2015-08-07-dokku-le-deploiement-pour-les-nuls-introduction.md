@@ -2,6 +2,8 @@
 title: Dokku, le déploiement pour les nuls ! (introduction)
 description: Le FTP c’est has been, ‘git push dokku master’ c’est l’avenir !
 published_at: 2015-08-07
+opengraph:
+  image: https://blog.otso.fr/images/2015-08-07-dokku-le-deploiement-pour-les-nuls-introduction/bob-eponge-arc-en-ciel.gif
 ---
 
 # Dokku, le déploiement pour les nuls ! (introduction)
@@ -24,7 +26,7 @@ Oubliez ces **terribles moments** que vous avez certainement vécu (_j’en rêv
 
 Vous voulez apprendre la **recette magique** pour arriver à ce résultat ? Suivez le guide !
 
-![](images/2015-08-07-dokku-le-déploiement-pour-les-nuls-introduction/bob-eponge-arc-en-ciel.gif)
+![](images/2015-08-07-dokku-le-deploiement-pour-les-nuls-introduction/bob-eponge-arc-en-ciel.gif)
 
 ## Qu’est-ce que Dokku ?
 
@@ -54,7 +56,7 @@ A la fin de l’installation, il vous sera demandé de vous connecter à l’url
 
 Vous pourrez ajouter votre **clé SSH** (_champ rempli automatiquement sur Digital Ocean_), ainsi que renseigner un **nom de domaine** que vous souhaitez utiliser à la place de l’adresse IP du serveur.
 
-![Finalisation de l’installation](images/2015-08-07-dokku-le-déploiement-pour-les-nuls-introduction/dokku-setup.png)
+![Finalisation de l’installation](images/2015-08-07-dokku-le-deploiement-pour-les-nuls-introduction/dokku-setup.png)
 
 Pour les besoin de cet article, nous partirons du principe que le serveur est accessible via l’url **dokku.me**
 
@@ -90,4 +92,4 @@ Aujourd’hui, je vous ai posé les bases de l’utilisation de Dokku. C’est b
 
 A bientôt, pour un nouvel épisode !
 
-![](images/2015-08-07-dokku-le-déploiement-pour-les-nuls-introduction/sheldon-content.gif)
+![](images/2015-08-07-dokku-le-deploiement-pour-les-nuls-introduction/sheldon-content.gif)

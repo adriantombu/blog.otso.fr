@@ -2,6 +2,8 @@
 title: Améliorez votre productivité grâce au principe de l’Inbox Zero
 description: Trop d'emails c'est tabou, on en viendra tous à bout !
 published_at: 2016-11-21
+opengraph:
+  image: https://blog.otso.fr/images/2016-11-21-ameliorez-votre-productivite-grace-au-principe-de-linbox-zero/inbox-of-hell.jpg
 ---
 
 # Améliorez votre productivité grâce au principe de l’Inbox Zero
