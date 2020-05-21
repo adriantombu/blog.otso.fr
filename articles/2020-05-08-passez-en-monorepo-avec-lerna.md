@@ -1,6 +1,7 @@
 ---
 title: Comment passer au monorepo avec Lerna
 description: Suivez-moi pas à pas dans la découverte du monde fantastique des monorepos
+published_at: 2020-05-08
 ---
 
 # Comment passer au monorepo avec Lerna

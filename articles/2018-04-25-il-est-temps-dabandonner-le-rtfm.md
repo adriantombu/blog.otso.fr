@@ -1,6 +1,7 @@
 ---
 title: Il est temps d’abandonner le “RTFM”
 description: Qu'est-ce que le RTFM (Read The Fucking Manual) et pourquoi il faut tout faire pour ne plus l'utiliser
+published_at: 2018-04-25
 ---
 
 # Il est temps d’abandonner le “RTFM”

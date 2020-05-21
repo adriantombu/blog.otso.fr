@@ -1,6 +1,7 @@
 ---
 title: Déployer avec Git sur un hébergement FTP
 description: L’utilisation de git-ftp simplifie grandement la mise en ligne de fichiers en FTP
+published_at: 2015-12-02
 ---
 
 # Déployer avec Git sur un hébergement FTP

@@ -1,6 +1,7 @@
 ---
 title: Welcome to my life !
 description: Naissance d’un enième blog de développeur web (mais belge, cette fois)
+published_at: 2015-07-21
 ---
 
 # Welcome to my life !

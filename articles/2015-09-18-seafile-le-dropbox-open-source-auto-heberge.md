@@ -1,6 +1,7 @@
 ---
 title: Seafile, le Dropbox open-source auto-hébergé
 description: Libérez vos données dans le cloud et lancez-vous dans l’auto-hébergement
+published_at: 2015-09-18
 ---
 
 # Seafile, le Dropbox open-source auto-hébergé

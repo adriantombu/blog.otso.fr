@@ -1,6 +1,7 @@
 ---
 title: Quelques mythes sur le travail en remote
 description: Moins productifs ? Tous dépressifs ? Incapables de travailler en équipe ? Debunkons ces idées reçues !
+published_at: 2018-10-17
 ---
 
 # Quelques mythes sur le travail en remote

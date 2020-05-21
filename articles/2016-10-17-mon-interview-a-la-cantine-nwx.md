@@ -1,6 +1,7 @@
 ---
 title: Mon interview à la Cantine NWX
 description: Un peu d'auto-promo
+published_at: 2016-10-17
 ---
 
 # Mon interview à la Cantine #NWX

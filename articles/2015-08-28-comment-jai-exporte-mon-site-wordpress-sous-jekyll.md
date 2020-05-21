@@ -1,6 +1,7 @@
 ---
 title: Comment j’ai exporté mon site Wordpress sous Jekyll
 description: Petit retour d’expérience sur ma transition avec succès entre Wordpress et Jekyll
+published_at: 2015-08-28
 ---
 
 # Comment j’ai exporté mon site Wordpress sous Jekyll

@@ -1,6 +1,7 @@
 ---
 title: Mettre manuellement votre application Laravel en maintenance
 description: Il suffit parfois d'un seul fichier...
+published_at: 2016-10-24
 ---
 
 # Mettre manuellement votre application Laravel en maintenance

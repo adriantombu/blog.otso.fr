@@ -1,6 +1,7 @@
 ---
 title: Une introduction rapide à la sécurité web
 description: Cet article vous expliquera la signification des acronymes les plus utilisés dans la sécurité web de manière simple et compréhensible
+published_at: 2018-08-15
 ---
 
 # Une introduction rapide à la sécurité web
