@@ -10,7 +10,7 @@ opengraph:
 
 Il y a quelques mois j'ai entamé la création d'un [générateur de blog statique en Go](https://github.com/adriantombu/orion) pour me faire la main sur le langage et j'ai souhaité y **intégrer un flux RSS**. Pourquoi me direz-vous ? Ce format de donnée a beau dater du millénaire précédent (la [première version du RSS](https://fr.wikipedia.org/wiki/RSS) est sortie en 1999), il est encore largement répandu de nos jours sur les blogs et sites d'informations et j'en suis moi-même un fervent utilisateur grâce à Feedly.
 
-La **création d'un flux RSS en Go** est somme toute assez simple et ne requiert que l'utilisation de la bibliothèque native `endoding/xml`.
+La **création d'un flux RSS en Go** est somme toute assez simple et ne requiert que l'utilisation de la bibliothèque native `encoding/xml`.
 
 ![Un joli logo RSS](images/2020-06-06-generer-un-flux-rss-en-go/logo-rss.png)
 
