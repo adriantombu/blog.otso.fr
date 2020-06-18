@@ -40,12 +40,12 @@ git push origin -u main
 git push origin --delete master
 ```
 
-⛔ Si comme beaucoup vous utilisez Git (mais ça s'applique sûrement à d'autres comme Gitlab) vous aurez une erreur sur la dernière commande. Pas de stress, **ça se répare en quelques clics** : dans votre repo sur Github, allez dans Settings > Branches et dans `Default branch` remplacez `master` par `main` avant de valider.
+⛔ Si comme beaucoup vous utilisez Github (mais ça s'applique sûrement à d'autres comme Gitlab) vous aurez une erreur sur la dernière commande. Pas de stress, **ça se répare en quelques clics** : dans votre repo sur Github, allez dans Settings > Branches et dans `Default branch` remplacez `master` par `main` avant de valider.
 
 ![Changer la branche principale sur Github](/images/2020-06-18-git-remplacer-master-main/changer-branche-principale-github.png)
 
 Vous pouvez relancer la commande `git push origin --delete master` et c'est fini, il ne reste plus qu'à **modifier vos scripts de déploiement** pour vous baser sur votre branche `main`.
 
-Vous avez vous, **c'est pas si horrible que ça** finalement ! Alors oui, vous me direz qu'on ne sauvera pas les gens des discriminations en changeant des mots dans du code. Mais c'est pas en réagissant comme des cons qu'on avancera non plus.
+Vous avez vu, **c'est pas si horrible que ça** finalement ! Alors oui, vous me direz qu'on ne sauvera pas les gens des discriminations en changeant des mots dans du code. Mais c'est pas en réagissant comme des cons qu'on avancera non plus.
 
 Peace ✊🏿
