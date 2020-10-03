@@ -37,7 +37,7 @@
       <ul class="articles">
         {{range .Articles}}
         <li>
-          <small>.{{.PublishedAt}}</small> <a href="{{.Slug}}">{{.Title}}</a>
+          <small>.{{.Metadata.PublishedAt}}</small> <a href="{{.HTMLPath}}">{{.Title}}</a>
         </li>
         {{end}}
       </ul>
