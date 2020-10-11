@@ -52,7 +52,7 @@ Ne mettez pas trop de code dans le répertoire de votre application. Si vous pen
 
 Il est habituel d'avoir une petite fonction `main` qui importe et appelle du code contenu dans les dossiers `/internal` et `/pkg`, et rien de plus.
 
-Voir le dossier [`/cmd`](cmd/README.md) pour des exemples.
+Voir le dossier [`/cmd`](https://github.com/golang-standards/project-layout/tree/master/cmd/README.md) pour des exemples.
 
 ### `/internal`
 
@@ -66,7 +66,7 @@ Placez-y le code qui peut être réutilisé par les applications externes (p. ex
 
 C'est également une manière de regrouper tout votre code Go au même endroit lorsque votre dossier racine comporte de nombreux composants et dossiers non-Go, permettant plus facilement de lancer les différents outils Go, tel que mentionné dans les conférences suivantes : [`Best Practices for Industrial Programming`](https://www.youtube.com/watch?v=PTE4VJIdHPg) lors de GopherCon EU 2018, [GopherCon 2018: Kat Zien - How Do You Structure Your Go Apps](https://www.youtube.com/watch?v=oL6JBUk6tj0) et [GoLab 2018 - Massimiliano Pippi - Project layout patterns in Go](https://www.youtube.com/watch?v=3gQa1LWwuzk)).
 
-Voir le dossier [`/pkg`](pkg/README.md) pour découvrir quels projets Go populaires utilisent cette architecture de projet. C'est un pattern plutôt commun, mais qui n'est pas accepté de manière universelle, et certaines personnes de la communauté Go ne le recommandent pas.
+Voir le dossier [`/pkg`](https://github.com/golang-standards/project-layout/tree/master/pkg/README.md) pour découvrir quels projets Go populaires utilisent cette architecture de projet. C'est un pattern plutôt commun, mais qui n'est pas accepté de manière universelle, et certaines personnes de la communauté Go ne le recommandent pas.
 
 Vous n'êtes pas obligés de l'utiliser si votre projet est petit et si l'ajout d'un niveau de plus n'ajoute pas vraiment de valeur (sauf si vous y tenez vraiment :-)). Il est temps d'y penser lorsque votre projet commence à prendre de l'ampleur et que votre dossier racine est encombré (surtout si vous avez beaucoup de composants non-Go)
 
@@ -84,7 +84,7 @@ Depuis sa version [`1.13`](https://golang.org/doc/go1.13#modules), Go active la 
 
 Spécifications OpenAPI/Swagger, fichiers de schémas JSON, fichiers de définitions de protocoles.
 
-Voir le dossier [`/api`](api/README.md) pour des examples.
+Voir le dossier [`/api`](https://github.com/golang-standards/project-layout/tree/master/api/README.md) pour des examples.
 
 ## Les répertoires d'application web
 
@@ -110,7 +110,7 @@ Scripts permettant différentes opérations telles que le build, l'installation,
 
 Ces scripts permettent de garder le Makefile du dossier racine réduit et simple (p. ex., [`https://github.com/hashicorp/terraform/blob/master/Makefile`](https://github.com/hashicorp/terraform/blob/master/Makefile)).
 
-Voir le dossier [`/scripts`](scripts/README.md) pour des exemples.
+Voir le dossier [`/scripts`](https://github.com/golang-standards/project-layout/tree/master/scripts/README.md) pour des exemples.
 
 ### `/build`
 
@@ -128,7 +128,7 @@ Templates et configurations pour les IaaS, PaaS, système et l'orchestration de 
 
 Applications et données de tests externes additionnels. Vous pouvez structurer le dossier `/test` de la façon qui vous convient le mieux. Pour des projets plus importants, il fait sens d'utiliser un sous-dossier `data`. Vous pouvez par exemple utiliser `/test/data` ou `/test/testdata` si vous souhaitez que Go ignore ce dossier. Go ignore également les dossiers ou fichiers commençant par "." ou "_", ce qui vous donne plus de flexibilité en terme de nommage de votre dossier de données de test.
 
-Voir le dossier [`/test`](test/README.md) pour des exemples
+Voir le dossier [`/test`](https://github.com/golang-standards/project-layout/tree/master/test/README.md) pour des exemples
 
 ## Autres répertoires
 
@@ -136,19 +136,19 @@ Voir le dossier [`/test`](test/README.md) pour des exemples
 
 Documents utilisateurs et design (en plus de votre documentation générée GoDoc)
 
-Voir le dossier [`/docs`](docs/README.md) pour des exemples
+Voir le dossier [`/docs`](https://github.com/golang-standards/project-layout/tree/master/docs/README.md) pour des exemples
 
 ### `/tools`
 
 Outils de support du projet. Ces scripts peuvent importer du code des dossier `/pkg` et `/internal`
 
-Voir le dossier [`/tools`](tools/README.md) pour des exemples
+Voir le dossier [`/tools`](https://github.com/golang-standards/project-layout/tree/master/tools/README.md) pour des exemples
 
 ### `/examples`
 
 Exemples de vos applications et/ou de vos bibliothèques publiques
 
-Voir le dossier [`/examples`](examples/README.md) pour des exemples
+Voir le dossier [`/examples`](https://github.com/golang-standards/project-layout/tree/master/examples/README.md) pour des exemples
 
 ### `/third_party`
 
@@ -166,7 +166,7 @@ D'autres assets qui sont utilisés dans votre dépôt (images, logos, etc).
 
 C'est là que vous placez les données du site de votre projet si vous n'utilisez pas GitHub pages.
 
-Voir le dossier [`/website`](website/README.md) pour des exemples
+Voir le dossier [`/website`](https://github.com/golang-standards/project-layout/tree/master/website/README.md) pour des exemples
 
 ## Les répertoires que vous ne devriez pas avoir
 
