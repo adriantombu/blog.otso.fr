@@ -12,13 +12,13 @@ opengraph:
 
 ![Mascottes des languages Go et Rust](images/2020-11-09-choisir-entre-rust-et-go/golang-ou-rust.png)
 
-Rust ou Go, quel est le meilleur ? Lequel de ces langages devriez vous choisir pour votre prochain projet, et pourquoi ? Comment pouvons nous les comparer au niveau des performances, de la simplicité, de la sécurité, des fonctionnalités, de la scalabilité et de la concurrence ? Qu'ont ils en commun, et où sont ils fondamentalement différents ? Nous allons le découvrir dans cette comparaison amicale et impartiale entre Rust et Go, par l'auteur de la série de livres [For the Love of Go](https://bitfieldconsulting.com/books/).
+Rust ou Go, quel est le meilleur ? Lequel de ces langages devriez vous choisir pour votre prochain projet, et pourquoi ? Comment pouvons-nous les comparer au niveau des performances, de la simplicité, de la sécurité, des fonctionnalités, de la scalabilité et de la concurrence ? Qu'ont ils en commun, et en quoi sont-ils fondamentalement différents ? Nous allons le découvrir dans cette comparaison amicale et impartiale entre Rust et Go, par l'auteur de la série de livres [For the Love of Go](https://bitfieldconsulting.com/books/).
 
 ## Rust et Go sont tous les deux fantastiques
 
-Premièrement, il est vraiment important de dire qu'autant Go que Rust sont d'excellents langages de programmation. Ils sont modernes, puissant, adoptés en masse et offrent d'excellentes performances. Vous avez probablement lu des articles assayant de vous convaincre que Go est meilleur que Rust, ou vice-versa. Mais cela ne fait aucun sens : tous les langages de programmation offrent un ensemble de compromis. Chaque langage est optimisé pour des choses différentes, et donc votre choix devrait être déterminé par ce qui convient le mieux à vous et aux problèmes que vous souhaitez résoudre avec ce langage.
+Premièrement, il est vraiment important de dire qu'autant Go que Rust sont d'excellents langages de programmation. Ils sont modernes, puissants, adoptés en masse et offrent d'excellentes performances. Vous avez probablement lu des articles essayant de vous convaincre que Go est meilleur que Rust, ou vice-versa. Mais cela ne fait aucun sens : tous les langages de programmation offrent un ensemble de compromis. Chaque langage est optimisé pour des choses différentes, et donc votre choix devrait être déterminé par ce qui convient le mieux à vous et aux problèmes que vous souhaitez résoudre avec ce langage.
 
-Dans cet article, j'essaie de vous donner un petit aperçu de quand je pense que Go est le choix idéal, et quand Rust est une alternative plus intéressante. Dans l'idéal, vous devriez avoir des familiarités pour travailler dans ces deux langages. Bien qu'ils soient très différents en syntaxe et style, autant Rust que Go sont des outils de première classe pour développer des logiciels. Ceci étant dit, regardons de plus près ces deux langages.
+Dans cet article, j'essaie de vous donner les clés afin de pouvoir décider qui de Go ou Rust est le choix le plus intéressant selon votre projet. Dans l'idéal, vous devriez avoir des familiarités pour travailler dans ces deux langages. Bien qu'ils soient très différents en syntaxe et style, autant Rust que Go sont des outils de première classe pour développer des logiciels. Ceci étant dit, regardons de plus près ces deux langages.
 
 ## Les similarités
 
@@ -36,7 +36,7 @@ Rust et Go ont beaucoup de choses en commun, c'est pourquoi vous les entendez so
 
 ### La sécurité de la mémoire
 
-Go et Rust appartiennent au groupe des langages de programmation modernes dont la priorité est la sécurité de la mémoire. Il est devenu évident durant ces dernières décennies d'utilisation de langages plus anciens tels que C et C++ que l'une des causes principales de bugs et de vulnérabilité est l'accès peu sûr ou incorrect à la mémoire. Rust et Go gèrent ce problème différement, mais tous deux essaient d'être plus élégants et sûr que les autres langages vis à vis de la gestion de la mémoire, et de la manière d'écrire des programmes pertinents et performants.
+Go et Rust appartiennent au groupe des langages de programmation modernes dont la priorité est la sécurité de la mémoire. Il est devenu évident durant ces dernières décennies d'utilisation de langages plus anciens tels que C et C++ que l'une des causes principales de bugs et de vulnérabilité est l'accès peu sûr ou incorrect à la mémoire. Rust et Go gèrent ce problème différemment, mais tous deux essaient d'être plus élégants et sûrs que les autres langages vis-à-vis de la gestion de la mémoire, et de la manière d'écrire des programmes pertinents et performants.
 
 ### Des exécutables rapides et compacts
 
@@ -44,7 +44,7 @@ Ce sont tous deux des langages compilés, ce qui signifie que vos programmes son
 
 ### Des langages généralistes
 
-Rust et Go sont des langages puissants, scalables et généralistes avec lesquels vous pouvez développer tous types de logiciels modernes, de l'application web aux microservices distribués, en passant par les microcontrolleurs embarqués et les applications mobiles. Tous deux ont des libraires standard de qualité, un écosystème prospère, un support commercial important et une base utilisateur étendue. Ils existent depuis de nombreuses années, et continueront à être largement utilisés dans les années à venir. Apprendre Go ou Rust aujourd'hui est un investissement intelligent de votre temps et vos efforts.
+Rust et Go sont des langages puissants, scalables et généralistes avec lesquels vous pouvez développer tous types de logiciels modernes, de l'application web aux microservices distribués, en passant par les microcontrolleurs embarqués et les applications mobiles. Tous deux ont des libraires standard de qualité, un écosystème prospère, un support commercial important et une base utilisateur étendue. Ils existent depuis de nombreuses années, et continueront à être largement utilisés dans les années à venir. Apprendre Go ou Rust aujourd'hui est un investissement intelligent de votre temps et de vos efforts.
 
 ### Un style de programmation pragmatique
 
@@ -85,11 +85,11 @@ En comparaison, et bien que les programmes Go performent également très bien, 
 
 Les performances de Rust sont également consistantes et prévisibles, car Rust n'utilise pas de garbage collector. Le garbage collector de Go est très efficace, et optimisé pour rendre ses pauses les plus courtes possibles (et de plus en plus courtes au fil des nouvelles versions de Go). Mais le garbage collector introduit inévitablement de l'incertitude dans la manière dont le programme se comporte, ce qui peut être un problème sérieux dans certaines applications telles que les systèmes embarqués.
 
-Il est possible d'optimiser les programmes Rust pour être le plus près possible des performances maximales théoriques de la machine car Rust tente de donner au développeur le contrôle complet du hardware sous-jacent. Cela fait de Rust un choix excellent dans des domaines où la vitesse d'exécution est plus importante que tout le reste, comme dans la programmation de jeux vidéo, de noyaux de systèmes d'opération, des composants de navigateurs web et de systèmes controllés en temps-réel.
+Il est possible d'optimiser les programmes Rust afin de coller au plus près des performances maximales théoriques de la machine car Rust tente de donner au développeur le contrôle complet du hardware sous-jacent. Cela fait de Rust un choix excellent dans des domaines où la vitesse d'exécution est plus importante que tout le reste, comme dans la programmation de jeux vidéo, de noyaux de systèmes d'opération, des composants de navigateurs web et de systèmes controllés en temps-réel.
 
 ### Simplicité
 
-Il n'y a pas d'intérêt à avoir un langage extrêmement rapide si personne ne sait comment l'utiliser. Go a été conçu délibérément comme une réaction à la complexité grandissante de langages tels que le C++ : il comporte très peu de syntaxe, peu de mots clés et, de ce fait, peu de fonctionnalités. Cela implique qu'il ne faut pas beaucoup de temps pour être assez à l'aise en Go et écrire des programmes utiles avec.
+Il n'y a pas d'intérêt à avoir un langage extrêmement rapide si personne ne sait comment l'utiliser. Go a été délibérément conçu comme une réaction à la complexité grandissante de langages tels que le C++ : il comporte très peu de syntaxe, peu de mots clés et, de ce fait, peu de fonctionnalités. Cela implique qu'il ne faut pas beaucoup de temps pour être assez à l'aise en Go et écrire des programmes utiles avec.
 
 > *Go est vraiment très simple à apprendre. Je sais que c'est un de ses avantages les plus connus, mais j'ai été vraiment surpris de comment j'ai pu être productif très rapidement. Grâce au langage, à la documentation et aux outils, j'ai pu écrire du code intéressant et commitable après littéralement deux jours.*
 >
@@ -130,7 +130,7 @@ fn is_prime(n: u64) -> bool {
 }
 ```
 
-Etant donné que Rust propose beaucoup de choses, cela veut dire qu'il y a beaucoup à apprendre, surtout au début. Mais ce n'est pas un problème : il y a aussi beaucoup de choses à apprendre en C++ ou Java, et vous n'avez même pas accès à des fonctionnalités avancées qui sont livrées avec Rust, telle que la sécurité de la mémoire. Critiquer Rust car c'est un langage complexe c'est passer à côté de ce qui fait sa force : il est pensé pour être expressif, ce qui signifie qu'il y a beaucoup de fonctionnalités, et dans la majorité des cas c'est ce que vous attendez d'un langage de programmation. La courbe d'apprentissage est indéniablement importante, mais vous n'aurez plus de problème une fois celle-ci passée.
+Étant donné que Rust propose beaucoup de choses, cela veut dire qu'il y a beaucoup à apprendre, surtout au début. Mais ce n'est pas un problème : il y a aussi beaucoup de choses à apprendre en C++ ou Java, et vous n'avez même pas accès à des fonctionnalités avancées qui sont livrées avec Rust, telle que la sécurité de la mémoire. Critiquer Rust sous prétexte que c'est un langage complexe conduit à passer à côté de ce qui fait sa force : il est pensé pour être expressif, ce qui signifie qu'il y a beaucoup de fonctionnalités, et dans la majorité des cas c'est ce que vous attendez d'un langage de programmation. La courbe d'apprentissage est indéniablement importante, mais vous n'aurez plus de problème une fois celle-ci passée.
 
 > *Rust est en compétition avec C++ et D pour les développeurs qui sont prêts à accepter une syntaxe et une sémantique plus complexes (cela a probablement un coût au niveau lisibilité) avec en retour la performance maximale possible.*
 >
@@ -138,13 +138,13 @@ Etant donné que Rust propose beaucoup de choses, cela veut dire qu'il y a beauc
 
 ### Concurrence
 
-La majorité des langages comporte une sorte de support pour la programmation concurrente (faire plusieurs choses en même temps), mais Go a été developpé dès le début avec cette idée en tête. Plutôt que d'utiliser les threads des systèmes d'opération, Go propose une alternative légère : les *goroutines*. Chaque goroutine est une fonction Go exécutée de manière indépendante que le planificateur de Go assignera à l'un des thread sous son contrôle. Cela signifie que le planificateur peut gérer très efficacement un nombre important de goroutines en utilisant seulement un nombre limité de threads.
+La majorité des langages comporte une sorte de support pour la programmation concurrente (faire plusieurs choses en même temps), mais Go a été développé dès le début avec cette idée en tête. Plutôt que d'utiliser les threads des systèmes d'opération, Go propose une alternative légère : les *goroutines*. Chaque goroutine est une fonction Go exécutée de manière indépendante que le planificateur de Go assignera à l'un des thread sous son contrôle. Cela signifie que le planificateur peut gérer très efficacement un nombre important de goroutines en utilisant seulement un nombre limité de threads.
 
 De ce fait, vous pouvez lancer des millions de goroutines concurrentes dans un unique programme sans rencontrer de problèmes importants de performances. Cela rend Go le choix parfait pour des applications concurrentes à grande échelle, telles que des serveurs web ou des microservices.
 
 Go propose également les `channels` pour permettre aux goroutines de communiquer et partager des données de manière rapide, sûre et efficace. Le support de la concurrence en Go est bien pensé et est un plaisir à utiliser. Raisonner en programmes concurrents est complexe habituellement, et construire un programme fiable est un challenge dans n'importe quel langage. Mais comme cette fonctionnalité a été pensée dès le début dans Go, plutôt qu'ajoutée plus tard, la programmation concurrente est quelque chose d'aussi simple et intégré que l'ont pourrait raisonnablement s'y attendre.
 
-> *Il est très facile d'utiliser Go pour développer une application qui tire pleinement partie de la concurrence tout en étant déployée comme un set de microservices. Rust peut également faire cela, mais c'est clairement plus complexe. L'obsession de Rust à prévenir toute vulnérabilité de sécurité liée à la mémoire signifie que les développeurs sont obligés de faire les choses différement pour exécuter une tâche qui serait bien plus simple dans d'autres langages, Go inclus.*
+> *Il est très facile d'utiliser Go pour développer une application qui tire pleinement partie de la concurrence tout en étant déployée comme un set de microservices. Rust peut également faire cela, mais c'est clairement plus complexe. L'obsession de Rust à prévenir toute vulnérabilité de sécurité liée à la mémoire signifie que les développeurs sont obligés de faire les choses différemment pour exécuter une tâche qui serait bien plus simple dans d'autres langages, Go inclus.*
 >
 > —[Sonya Koptyev](https://sdtimes.com/softwaredev/the-developers-dilemma-choosing-between-go-and-rust/)
 
@@ -182,7 +182,7 @@ Beaucoup de langages, Go inclus, aident les développeurs à éviter certaines e
 
 "Se battre avec le borrow checker" est un syndrome commun à tous les nouveaux développeurs Rust, mais la majorité du temps les problèmes soulevés sont de réels bugs (ou des bugs potentiels) dans votre code. Il peut vous forcer à réarchitecturer entièrement votre programme pour éviter à nouveau ces problèmes mais c'est une bonne chose d'avoir l'exactitude et la fiabilité au top de vos priorités. Quel est l'intérêt d'un langage qui ne vous oblige pas à changer votre manière de développer ? Les leçons tirées de la sécurité dans Rust seront également utiles lorsque vous travaillerez avec d'autres langages.
 
-> *Si vous choisissez Rust, c'est généralement pour les garanties que le langage vous donne : la sécurité contre les pointeurs null et les situations de compétition, une exécution prévisible, et un contrôle total sur le matériel. Si vous n'avez pas besoin de ces fonctionnalités, Rust n'est peut être pas le meilleur choix pour votre prochain projet. Cela est principalement dû au fait que la montée en puissance est difficile. Vous devrez désapprendre de mauvaises habitudes et apprendre de nouveaux concepts. Il est fort possible que vous vous battrez énormément avec le borrow checker lorsque vous commencerez.*
+> *Si vous choisissez Rust, c'est généralement pour les garanties que le langage vous donne : la sécurité contre les pointeurs null et les situations de compétition, une exécution prévisible, et un contrôle total sur le matériel. Si vous n'avez pas besoin de ces fonctionnalités, Rust n'est peut être-pas le meilleur choix pour votre prochain projet. Cela est principalement dû au fait que la montée en puissance est difficile. Vous devrez désapprendre de mauvaises habitudes et apprendre de nouveaux concepts. Il est fort possible que vous vous battrez énormément avec le borrow checker lorsque vous commencerez.*
 >
 > —[Matthias Endler](https://endler.dev/2017/go-vs-rust/)
 
@@ -198,7 +198,7 @@ Votre expérience des autres langages définira votre notion de difficulté du m
 >
 > —[Rob Pike](https://talks.golang.org/2012/splash.article)
 
-Lorsque vous travaillez sur un problème seul ou dans une équipe réduite, le choix d'un langage simple ou riche est plus une préférence personnelle. Mais les différences finissent vraiment par se sentir au fur et à mesure que le logiciel devient de plus en plus gros et complexe et que les équipes se développent. Pour de grosses applications et des systèmes distribués, la vitesse d'exécution est moins importante que la vitesse de développement : un langage délibérement minimal tel que Go réduit le temps d'adaptation des nouveaux développeurs et les aide à travailler sur des bases de code importantes.
+Lorsque vous travaillez sur un problème seul ou dans une équipe réduite, le choix d'un langage simple ou riche est plus une préférence personnelle. Mais les différences finissent vraiment par se sentir au fur et à mesure que le logiciel devient de plus en plus gros et complexe et que les équipes se développent. Pour de grosses applications et des systèmes distribués, la vitesse d'exécution est moins importante que la vitesse de développement : un langage délibérément minimal tel que Go réduit le temps d'adaptation des nouveaux développeurs et les aide à travailler sur des bases de code importantes.
 
 > *Avec Go, il est plus simple pour un développeur junior d'être plus productif, et plus complexe pour un développeur expérimenté d'introduire des abstractions qui finiront par causer des problèmes. C'est pour ces raisons que Rust est moins irrésistible que Go pour le développement de logiciels d'entreprise.*
 >
@@ -208,15 +208,15 @@ Lorsque l'on parle d'industrialisation du développement logiciel, la clarté es
 
 ## Les différences
 
-Bien que Rust et Go soient populaires, modernes et largement utilisés, ils ne sont pas vraiment en compétition, dans le sens qu'ils visent des cas d'utilisation plutôt différents. L'approche de programmation de Go est radicalement différente de celle de Rust, et chaque langage conviendra à certains tout en irritant d'autres. C'est tout à fait normal, et si Rust et Go faisaient plus ou moins la même chose d'une manière similaire, nous n'aurions pas vraiment besoin de deux langages différents.
+Bien que Rust et Go soient populaires, modernes et largement utilisés, ils ne sont pas vraiment en compétition, dans le sens qu'ils visent des cas d'utilisation plutôt différents. L'approche de programmation de Go est radicalement différente de celle de Rust, et chaque langage conviendra à certains, tout en en irritant d'autres. C'est tout à fait normal, et si Rust et Go faisaient plus ou moins la même chose d'une manière similaire, nous n'aurions pas vraiment besoin de deux langages différents.
 
 Nous allons développer quelles sont les natures respectives de Rust et Go en trouvant des problèmes sur lesquels ils adoptent des approches radicalement différentes.
 
 ### Garbage collector
 
-"Faut il ou pas utiliser le garbage collector ?" est l'une de ces questions qui n'a pas vraiment de réponse correcte. La gestion automatisée de la mémoire permet généralement de développer rapidement et facilement des programmes sûr et efficaces, et c'est tout ce qui importe pour certains. Mais d'autres vous diront que cela génère des problèmes de performances et rend l'exécution moins prévisible tout en ajoutant des temps de latence inacceptables. C'est un débat sans fin.
+"Faut-il ou pas utiliser le garbage collector ?" est l'une de ces questions qui n'a pas vraiment de réponse correcte. La gestion automatisée de la mémoire permet généralement de développer rapidement et facilement des programmes sûrs et efficaces, et c'est tout ce qui importe pour certains. Mais d'autres vous diront que cela génère des problèmes de performances et rend l'exécution moins prévisible tout en ajoutant des temps de latence inacceptables. C'est un débat sans fin.
 
-> *Go est un langage très différent de Rust. Bien que les deux soit vaguement décrits en tant que langages systèmes ou successeurs de C, ils ont des buts et applications, des styles de langage et des priorités différents. Le garbage collector en est l'un des plus grands différenciateur. L'utilisation du GC dans Go rend le langage plus simple, plus petit, et plus facile à gérer.*
+> *Go est un langage très différent de Rust. Bien que les deux soit vaguement décrits en tant que langages systèmes ou successeurs de C, ils ont des buts et applications, des styles de langage et des priorités différents. Le garbage collector en est l'un des plus grands différenciateurs. L'utilisation du GC dans Go rend le langage plus simple, plus petit, et plus facile à gérer.*
 >
 > *Ne pas avoir de GC dans Rust rend le langage vraiment très rapide (surtout si vous avez besoin d'une latence garantie, et pas uniquement un débit élevé) et permet l'utilisation de fonctionnalités et de modèles de développement qui ne sont pas possibles en Go (ou tout du moins sans sacrifier en performance)*
 >
@@ -232,9 +232,9 @@ L'histoire de la programmation est une suite d'abstractions de plus en plus soph
 
 ### La rapidité avant tout
 
-J'ai écrit dans un autre article que [la performance est moins importante que la lisibilité](https://bitfieldconsulting.com/golang/slower) pour la majorité des programmes. Mais lorsqu'on recherche la performance, cela a une véritable importance. Rust fait un certain nombre de compris pour arriver à la meilleur vitesse d'exécution possible. Par contraste, Go est plus concerné par la simplicité, et est prêt à sacrifier un peu de performance d'exécution à cet effet. Mais la vitesse d'exécution d'un build Go est imbattable, et c'est ce qui importe le plus sur des codebases de grande taille.
+J'ai écrit dans un autre article que [la performance est moins importante que la lisibilité](https://bitfieldconsulting.com/golang/slower) pour la majorité des programmes. Mais lorsqu'on recherche la performance, cela a une véritable importance. Rust fait un certain nombre de compromis pour arriver à la meilleure vitesse d'exécution possible. Par contraste, Go est plus concerné par la simplicité, et est prêt à sacrifier un peu de performance d'exécution à cet effet. Mais la vitesse d'exécution d'un build Go est imbattable, et c'est ce qui importe le plus sur des codebases de grande taille.
 
-> *Rust est plus rapide que Go. Dans les benchmarks ci-dessus, Rust était plus rapide, et dans certains cas d'un ordre de grandeur plus rapide. Mais avant de tout balancer pour écrire tout en Rust, n'obuliez pas que Go n'était pas si loin que ça dans la majorité des benchmarks, et qu'il reste bien plus rapide que des langages tels que Java, C#, JavaScript, Python et autres.*
+> *Rust est plus rapide que Go. Dans les benchmarks ci-dessus, Rust était plus rapide, et dans certains cas d'un ordre de grandeur plus rapide. Mais avant de tout balancer pour écrire tout en Rust, n'oubliez pas que Go n'était pas si loin que ça dans la majorité des benchmarks, et qu'il reste bien plus rapide que des langages tels que Java, C#, JavaScript, Python et autres.*
 >
 > *S'il vous faut absolument les meilleures performances, vous serez devant tout le monde en utilisant l'un de ces langages. Si vous développez un web service qui doit gérer une charge élevée, et que vous souhaitez pouvoir scaler verticalement et horizontalement, ces deux langages conviendront parfaitement.*
 >
@@ -248,9 +248,9 @@ D'un autre côté, un programme peut être arbitrairement rapide s'il n'est pas 
 >
 > —Grzegorz Nosek
 
-Bien que Go et Rust soient tous deux d'excellents choix pour n'importe quel projet sérieux, cela reste une bonne idée de rester le plus à jour possible par rapport à chacun de ces langages et de ses caractéristiques. Au final, peu importe ce que pensent les autres : il n'y a que vous qui pouvez décider de ce qui convient pour vous et votre équipe.
+Bien que Go et Rust soient tous deux d'excellents choix pour n'importe quel projet sérieux, cela reste une bonne idée de rester le plus à jour possible par rapport à chacun de ces langages et de ses caractéristiques. Finalement, peu importe ce que pensent les autres : il n'y a que vous qui pouvez décider de ce qui convient pour vous et votre équipe.
 
-> *Si vous souhaitez développer rapidement, peut-être parce que vous avez différents services à écrire, ou que vous avez une équipe importante de développeurs, alors Go est votre langage de choix. Go vous offre la concurrence et ne tolère pas les accès risqués à la mémoire (Rust non plus), mais sans vous obliger à gérer chaque petit détail. Go est rapide et puissant, tout en évitant de ralentir le développeur, grâce à sa simplicitié et son uniformité. Dans le cas contraire, Rust devrait être votre choix si vous souhaitez absolument atteindre le maximum de performances.*
+> *Si vous souhaitez développer rapidement, peut-être parce que vous avez différents services à écrire, ou que vous avez une équipe importante de développeurs, alors Go est votre langage de choix. Go vous offre la concurrence et ne tolère pas les accès risqués à la mémoire (Rust non plus), mais sans vous obliger à gérer chaque petit détail. Go est rapide et puissant, tout en évitant de ralentir le développeur, grâce à sa simplicité et son uniformité. Dans le cas contraire, Rust devrait être votre choix si vous souhaitez absolument atteindre le maximum de performances.*
 >
 > —[Andrew Lader](https://codeburst.io/should-i-rust-or-should-i-go-59a298e00ea9https://codeburst.io/should-i-rust-or-should-i-go-59a298e00ea9)
 
@@ -258,7 +258,7 @@ Bien que Go et Rust soient tous deux d'excellents choix pour n'importe quel proj
 
 J'espère que cet article vous aura convaincu qu'autant Rust que Go méritent d'être considérés sérieusement. Dans les limites du possible vous devriez tenter d'avoir un minimum d'expérience dans ces deux langages car ils vous seront incroyablement utiles dans n'importe quelle carrière tech, ou plus simplement si vous aimez la programmation en tant que hobby. Si vous n'avez le temps de vous investir que dans un seul langage, ne prenez pas de décision avant d'avoir utilisé Go et Rust pour développer différents types de programmes, qu'ils soient petits ou importants.
 
-La connaissance d'un langage de programmation n'est vraiment qu'une toute petit part de la vie d'un développeur accompli. Les compétences les plus importantes, et de loin, restent le design, l'ingénierie, l'architecture, la communication et la collaboration. Si vous excellez dans ces compétences, vous serez un très bon développeur quel que soit votre choix de langage. Bon apprentissage !
+La connaissance d'un langage de programmation n'est vraiment qu'une toute petite part de la vie d'un développeur accompli. Les compétences les plus importantes, et de loin, restent le design, l'ingénierie, l'architecture, la communication et la collaboration. Si vous excellez dans ces compétences, vous serez un très bon développeur quel que soit votre choix de langage. Bon apprentissage !
 
 
 ## Quelques sources pour débuter
