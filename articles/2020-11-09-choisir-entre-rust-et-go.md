@@ -1,6 +1,6 @@
 ---
 title: Que choisir entre Rust et Go
-description: Cet article est une traduction du dépôt Github Standard Go Project Layout
+description: Dans cet article, j'essaie de vous donner les clés afin de pouvoir décider qui de Go ou Rust est le choix le plus intéressant selon votre projet.
 published_at: 2020-10-11
 opengraph:
   image: https://blog.otso.fr/images/2020-11-09-choisir-entre-rust-et-go/golang-ou-rust.png
@@ -99,7 +99,7 @@ Le mot clé ici est la *simplicité*. La simplicité ne signifie pas la facilit�
 
 ```go
     fmt.Println("Gopher's Diner Breakfast Menu")
-    
+
     for dish, price := range menu {
         fmt.Println(dish, price)
     }
