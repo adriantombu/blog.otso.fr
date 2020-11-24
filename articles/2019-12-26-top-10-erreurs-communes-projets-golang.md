@@ -313,3 +313,5 @@ Cela peut sembler contre-intuitif d'utiliser `i := i` mais c'est quelque chose d
 ### En savoir plus
 
 - [Common Mistakes: Using goroutines on loop iterator variables](https://github.com/golang/go/wiki/CommonMistakes#using-goroutines-on-loop-iterator-variables)
+
+> Ce texte est une traduction de l’article [The Top 10 Most Common Mistakes I’ve Seen in Go Projects](https://itnext.io/the-top-10-most-common-mistakes-ive-seen-in-go-projects-4b79d4f6cd65) avec l’aimable autorisation de son auteur [Teiva Harsanyi](https://twitter.com/teivah)

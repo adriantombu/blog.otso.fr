@@ -268,3 +268,5 @@ Tout comme Ryan Holiday l’écrit dans _[The Obstacle is the Way](https://www.g
 1. Techniquement, la communauté StackOverflow [décourage l’utilisation du RTFM](https://meta.stackexchange.com/questions/23628/how-should-we-deal-with-rtfm-comments); néanmoins, vous noterez que leur page “Demander de l’aide” comprend un lien vers [ce document](https://stackoverflow.com/help/how-to-ask), qui encourage le RTFM. De même, et comme discuté dans cet article, cela fait partie d’une pratique plus générale d’humiliation qui arrive fréquemment sur StackOverflow.
 1. Oui, il existe des [alternatives plus indulgentes](https://en.wikipedia.org/wiki/RTFM).
 1. Je n’endosse aucune responsabilité pour ce qu’il a réalisé grâce à ces connaissances. :-P
+
+> Ce texte est une traduction de l’article _[It’s time to retire “RTFM”](https://medium.com/compassionate-coding/its-time-to-retire-rtfm-31acdfef654f)_ avec l’aimable autorisation de son auteure [April Wensel](https://medium.com/@Aprilw)

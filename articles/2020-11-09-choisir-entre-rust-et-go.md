@@ -288,3 +288,5 @@ Si vous êtes intéressés pour apprendre à développer en Rust et Go, voici qu
 ## Remerciements
 
 Je ne suis pas assez jeune pour tout connaître, comme le dit le dicton, je suis donc très reconnaissant pour l'aide de nombreux Gophers et Rustacés qui ont pris le temps de faire une revue et une correction de cet article, ainsi que me transmettre des suggestions très utiles. Mes remerciements vont vers Bill Kennedy, Grzegorz Nosek, Sam Rose, Jack Mott, Steve Klabnik, MN Mark, Ola Nordstrom, Levi Lovelock, Emile Pels, Sebastian Lauwers, Carl Lerche et tous les autres contributeurs. Vous pourriez avoir l'impression en lisant des articles que les communautés Rust et Go ne s'entendent pas du tout. Mais d'expérience cela est vraiment très éloigné de la vérité : nous avons pu avoir des discussions civilisées et productives lors de l'écriture de cet article, et cela a fait une très grande différence au final. Encore merci.
+
+> Ce texte est une traduction de l’article [Rust vs Go](https://bitfieldconsulting.com/golang/rust-vs-go) avec l’aimable autorisation de son auteur [John Arundel](https://twitter.com/bitfield)

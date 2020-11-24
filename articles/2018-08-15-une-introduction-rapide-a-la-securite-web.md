@@ -169,3 +169,5 @@ Utilisons à nouveau l’exemple Facebook pour illustrer à quel point c’est u
 La sécurité web est importante à n’importe quel moment de votre parcours dans le développement web. Plus tôt vous vous y exposez, meilleures seront vos chances de vous protéger. La sécurité est un sujet qui devrait être important pour tout le monde, et pas juste pour les personnes dont c’est le métier ! 👮
 
 ![](images/2018-08-15-une-introduction-rapide-a-la-securite-web/cops-are-looking-at-you.gif)
+
+> Ce texte est une traduction de l’article [A quick introduction to web security](https://medium.freecodecamp.org/a-quick-introduction-to-web-security-f90beaf4dd41) avec l’aimable autorisation de son auteur [Augustin Tackaberry](https://medium.freecodecamp.org/@austintackaberry)

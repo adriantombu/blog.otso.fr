@@ -96,3 +96,5 @@ De cette manière, ils obtiennent le meilleur des deux mondes. La fiabilité de 
 Dans le monde réel, il n’y a pas de pigeons lents. Néanmoins, chiffrer des messages en utilisant la cryptographie asymétrique est plus lent que d’utiliser la cryptographie symétrique: nous ne l’utilisons donc que pour échanger les clés de chiffrement.
 
 Vous savez désormais comment fonctionne le **HTTPS**, et votre café devrait être prêt. Vous avez bien mérité de le boire 😉
+
+> Ce texte est une traduction de l’article [HTTPS explained with carrier pigeons](https://medium.freecodecamp.org/https-explained-with-carrier-pigeons-7029d2193351) écrit par [Andrea Zanin](https://medium.freecodecamp.org/@zanin_andrea)
