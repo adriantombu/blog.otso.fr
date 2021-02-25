@@ -48,7 +48,7 @@ Le fonctionnement de ce plugin est vraiment très simple :
 
 - Lancer la génération du site en statique avec la commande _jekyll build_
 
-- Accéder à une page projet via les page générées automatiquement, [\*/portfolio/application-mobile-rue-89.html](https://otso.fr/portfolio/application-mobile-rue-89.html)\* dans l’exemple ci-dessus
+- Accéder à une page projet via les page générées automatiquement
 
 J’ai du faire une **petite modification du plugin**, car celui-ci remplaçait automatiquement le titre de la page par le slug, ce qui ne m’arrangeait pas vraiment
 
