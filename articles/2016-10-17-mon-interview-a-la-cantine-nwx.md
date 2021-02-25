@@ -48,5 +48,5 @@ Dernier point important : le café est gratuit et bien meilleur que celui du dis
 
 - [https://otso.fr](https://otso.fr)
 - [https://twitter.com/adriantombu](https://twitter.com/adriantombu)
-- [https://www.facebook.com/adriantombu](https://www.facebook.com/adriantombu)
+- [https://www.linkedin.com/in/adriantombu/](https://www.linkedin.com/in/adriantombu/)
 - [https://blog.otso.fr](https://blog.otso.fr)

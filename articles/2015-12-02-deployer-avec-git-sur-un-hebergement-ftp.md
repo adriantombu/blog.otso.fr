@@ -18,7 +18,7 @@ C’est en faisant quelques recherches pour **améliorer ce process de déploiem
 
 Toute l’efficacité de cet outil réside dans le fait qu’il ne met en ligne que les **fichiers qui ont été modifiés**, à l’aide d’une simple commande dans le terminal. Je l’utilise actuellement sur un projet important pour faire les **mises en pré-production** sur le serveur du client, ce qui m’offre un réel gain de productivité.
 
-L’installation et la configuration sont assez simples, et tout est clairement détaillé dans [le fichier INSTALL.md](https://github.com/git-ftp/git-ftp/blob/develop/INSTALL.md) du dépôt. Etant utilisateur Mac OSX, j’ai simplement utilisé Homebrew.
+L’installation et la configuration sont assez simples, et tout est clairement détaillé dans [le fichier INSTALL.md](https://github.com/git-ftp/git-ftp/blob/master/INSTALL.md) du dépôt. Etant utilisateur Mac OSX, j’ai simplement utilisé Homebrew.
 
     brew install git brew install curl --with-ssl --with-libssh2 brew install git-ftp
 
@@ -35,4 +35,4 @@ Afin d’éviter de renseigner à chaque fois les infos de connexion et le host,
     git config git-ftp.user john git config git-ftp.url ftp.example.com
     git config git-ftp.password secr3t git config git-ftp.syncroot path/dir
 
-Si vous voulez aller plus loin, vous trouverez toute la documentation et plus d’exemples [dans le manuel utilisateur](https://github.com/git-ftp/git-ftp/blob/develop/man/git-ftp.1.md).
+Si vous voulez aller plus loin, vous trouverez toute la documentation et plus d’exemples [dans le manuel utilisateur](https://github.com/git-ftp/git-ftp/blob/master/man/git-ftp.1.md).

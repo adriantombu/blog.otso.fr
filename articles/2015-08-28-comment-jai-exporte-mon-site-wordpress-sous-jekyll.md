@@ -62,8 +62,6 @@ J’ai également installé un **script Gulp** afin d’optimiser/minifier/conca
 
 ## Jekyll Triumphant
 
-Si vous êtes curieux, vous pouvez accéder au **code du site** sur mon Github à l’adresse suivante : [https://github.com/adriantombu/otso-jekyll](https://github.com/adriantombu/otso-jekyll)
-
 Avant de vous laisser, voilà un petit avant / après des **performances de chargement de la page d’accueil**, suite à mon export Wordpress sous Jekyll et quelques optimisations. J’ai encore un peu de boulot pour supprimer les scripts et css inutilisés, mais le résultat actuel est déjà **très convaincant** !
 
 ![GT Metrix du site sous Wordpress](images/2015-08-28-comment-jai-exporte-mon-site-wordpress-sous-jekyll/performances-wordpress.png)

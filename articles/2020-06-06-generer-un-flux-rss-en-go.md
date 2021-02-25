@@ -50,7 +50,7 @@ Voici le code final de la partie où l'on **génère le flux RSS** :
 
 ## Étape bonus : la date de publication de l'article
 
-Je ne l'ai pas ajouté dans l'exemple ci-dessus mais il est possible d'ajouter une **date de publication** pour les articles : c'est le champ `pubDate` que j'utilise également sur [Orion](https://github.com/adriantombu/orion/blob/master/cmd/build/rss.go#L59) et qui a la particularité de devoir être spécifié au format [RFC-822](https://www.feedvalidator.org/docs/error/InvalidRFC2822Date.html) mais avec l'année sur 4 chiffres et non 2.
+Je ne l'ai pas ajouté dans l'exemple ci-dessus mais il est possible d'ajouter une **date de publication** pour les articles : c'est le champ `pubDate` que j'utilise également sur [Orion](https://github.com/adriantombu/orion/blob/master/cmd/build/rss.go#L59) et qui a la particularité de devoir être spécifié au format [RFC-822](https://validator.w3.org/feed/docs/error/InvalidRFC2822Date.html) mais avec l'année sur 4 chiffres et non 2.
 
 Heureusement pour nous il existe dans Go un format de date dans [les constantes de la bilbiothèque standard time](https://golang.org/pkg/time/#pkg-constants) qui correspond à ce que l'on recherche : `RFC1123Z`
 

@@ -40,7 +40,7 @@ Go et Rust appartiennent au groupe des langages de programmation modernes dont l
 
 ### Des exécutables rapides et compacts
 
-Ce sont tous deux des langages compilés, ce qui signifie que vos programmes sont traduits directement en code machine afin que vous puissiez déployer votre programme en un seul fichier binaire. Contrairement aux langages interprétés tels que [Python](https://bitfieldconsulting.com/golang/golang/go-vs-python) et Ruby, vous ne devez pas distribuer un interpréteur et tous les paquets et dépendances en même temps que votre programme, ce qui est un avantage certain. C'est également ce qui rend les programmes Rust et Go extrêmement rapides par rapport aux langages interprétés.
+Ce sont tous deux des langages compilés, ce qui signifie que vos programmes sont traduits directement en code machine afin que vous puissiez déployer votre programme en un seul fichier binaire. Contrairement aux langages interprétés tels que [Python](https://bitfieldconsulting.com/golang/go-vs-python) et Ruby, vous ne devez pas distribuer un interpréteur et tous les paquets et dépendances en même temps que votre programme, ce qui est un avantage certain. C'est également ce qui rend les programmes Rust et Go extrêmement rapides par rapport aux langages interprétés.
 
 ### Des langages généralistes
 
