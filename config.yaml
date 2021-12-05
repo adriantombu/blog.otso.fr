@@ -1,6 +1,6 @@
 base_url: https://blog.otso.fr/
 site_name: Blob Trotter
-description: Les pérégrinations d'un développeur dans le monde de Javascript et de Go
+description: Les pérégrinations d'un développeur dans le monde du développement web
 theme: otso
 build_path: ./docs
 
