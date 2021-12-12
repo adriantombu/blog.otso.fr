@@ -1,7 +1,7 @@
 ---
 title: "Marre du JavaScript, j'apprends un vrai langage: Rust (Jour 1)"
 description: Lancement du carnet de bord d'un développeur Node.js dans son apprentissage d'un nouveau langage moins foireux que le JavaScript
-published_at: 2020-11-09
+published_at: 2021-12-05
 opengraph:
   image: https://blog.otso.fr/images/2021-12-05-marre-javascript-apprendre-rust/langage-programmation-rust.jpg
 ---
