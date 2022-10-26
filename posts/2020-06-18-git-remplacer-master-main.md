@@ -1,9 +1,8 @@
 ---
 title: Et si on passait de master à main dans nos repos Git ?
 description: Ca prend 2 minutes et 4 lignes de code, foncez !
-published_at: 2020-06-18
-opengraph:
-  image: https://blog.otso.fr/images/2020-06-18-git-remplacer-master-main/changer-branche-principale-github.png
+published_at: 2020-06-18 10:00:00
+image: https://blog.otso.fr/images/2020-06-18-git-remplacer-master-main/changer-branche-principale-github.png
 ---
 
 # Et si on passait de master à main dans nos repos Git ?

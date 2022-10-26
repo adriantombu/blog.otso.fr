@@ -1,0 +1,12 @@
+base_url= "https://blog.otso.fr/"
+site_name = "Blob Trotter"
+description = "Les pérégrinations d'un développeur dans le monde du développement web"
+theme = "otso"
+build_path = "./docs"
+locale = "fr_FR"
+
+[seo]
+robots = "index, follow"
+
+[twitter]
+creator = "adriantombu"

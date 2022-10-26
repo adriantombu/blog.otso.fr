@@ -1,9 +1,8 @@
 ---
 title: Organisation d'un projet Go standard
 description: Cet article est une traduction du dépôt Github Standard Go Project Layout
-published_at: 2020-10-11
-opengraph:
-  image: https://blog.otso.fr/images/2020-10-11-organisation-projet-go-standard/go-standard-project-layout.png
+published_at: 2020-10-11 10:00:00
+image: https://blog.otso.fr/images/2020-10-11-organisation-projet-go-standard/go-standard-project-layout.png
 ---
 
 # Organisation d'un projet Go standard

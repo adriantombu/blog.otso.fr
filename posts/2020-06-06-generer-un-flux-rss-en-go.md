@@ -1,9 +1,8 @@
 ---
 title: Générer un flux RSS en Go
 description: Comment utiliser les bibliothèques standard Go pour générer un flux RSS valide
-published_at: 2020-06-06
-opengraph:
-  image: https://blog.otso.fr/images/2020-06-06-generer-un-flux-rss-en-go/logo-rss.png
+published_at: 2020-06-06 10:00:00
+image: https://blog.otso.fr/images/2020-06-06-generer-un-flux-rss-en-go/logo-rss.png
 ---
 
 # Générer un flux RSS en Go

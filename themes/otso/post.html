@@ -6,17 +6,19 @@
     <meta name="description" content="{description}" />
     <meta name="robots" content="{seo.robots}" />
 
-    <meta property="og:site_name" content="{title}" />
+    <meta property="og:site_name" content="{sitename}" />
     <meta property="og:locale" content="{locale}" />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content="article" />
     <meta property="og:title" content="{title}" />
     <meta property="og:url" content="{canonical}" /> 
+    <meta property="og:image" content="{image}" />
     <meta property="og:description" content="{description}" />
+    <meta property="article:published_time" content="{published_at_raw}" />
 
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:creator" content="{twitter.creator}" />
 
-    <title>{title}</title>
+    <title>{title} - {sitename}</title>
 
     <link rel="icon" href="./favicon.png" />
     <link rel="canonical" href="{canonical}" />
@@ -28,8 +30,8 @@
     <header>
       <nav>
         <a href="https://otso.fr">Accueil</a> &bull;
-        <a href="https://otso.fr/index-en.html">In English</a> &bull; Blog
-        &bull;
+        <a href="https://otso.fr/index-en.html">In English</a> &bull;
+        <a href="https://blog.otso.fr">Blog</a> &bull;
         <a href="https://otso.fr/conditions-generales-de-vente.html">CGV</a>
         &bull;
         <a href="https://otso.fr/mentions-legales.html">Mentions légales</a>
@@ -37,22 +39,13 @@
     </header>
 
     <article>
-      <h1>{title}</h1>
-      <p>{description}</p>
-
-      <ul class="articles">
-        {{for post in posts}}
-          <li>
-            <small>.{post.published_at}</small> <a href="{post.path}">{post.title}</a>
-          </li>
-        {{endfor}}
-      </ul>
+      {content}
     </article>
 
     <footer>
       <h2>Comment puis-je vous aider ?</h2>
       <p>Je m'appelle Adrian Tombu et je suis Principal Software Engineer spécialisé en Rust et Blockchain. Contactez-moi sur <a href="https://www.linkedin.com/in/adriantombu/">LinkedIn</a> pour en savoir plus !</p>
-      <p><small>Ce blog a été créé avec <a href="https://github.com/adriantombu/orion">Orion</a>, un générateur de site statique sans prétention développé avec mes petites mains.</small></p>
+      <p><small>Cet article de blog a été créé avec <a href="https://github.com/adriantombu/orion">Orion</a>, un générateur de site statique sans prétention développé avec mes petites mains.</small></p>
     </footer>
   </body>
 </html>
