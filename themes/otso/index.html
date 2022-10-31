@@ -3,19 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="{{.Description}}" />
-    <meta name="og:title" content="{{.Title}}" />
-    <meta name="og:url" content="{{.Canonical}}" />
-    <meta name="og:site_name" content="{{.Title}}" />
-    <meta name="og:description" content="{{.Description}}" />
-    <meta name="og:type" content="website" />
+    <meta name="description" content="{description}" />
+    <meta name="robots" content="{seo.robots}" />
 
-    <title>{{.Title}}</title>
+    <meta property="og:site_name" content="{title}" />
+    <meta property="og:locale" content="{locale}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{title}" />
+    <meta property="og:url" content="{canonical}" /> 
+    <meta property="og:description" content="{description}" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:creator" content="{twitter.creator}" />
+
+    <title>{title}</title>
 
     <link rel="icon" href="./favicon.png" />
+    <link rel="canonical" href="{canonical}" />
     <link href="./style.css" rel="stylesheet" type="text/css" />
     <link href="./rss.xml" type="application/rss+xml" />
-    <link rel="canonical" href="{{.Canonical}}" />
   </head>
 
   <body>
@@ -31,21 +37,21 @@
     </header>
 
     <article>
-      <h1>{{.Title}}</h1>
-      <p>{{.Description}}</p>
+      <h1>{title}</h1>
+      <p>{description}</p>
 
       <ul class="articles">
-        {{range .Articles}}
-        <li>
-          <small>.{{.Metadata.PublishedAt}}</small> <a href="{{.HTMLPath}}">{{.Title}}</a>
-        </li>
-        {{end}}
+        {{for post in posts}}
+          <li>
+            <small>.{post.published_at}</small> <a href="{post.path}">{post.title}</a>
+          </li>
+        {{endfor}}
       </ul>
     </article>
 
     <footer>
       <h2>Comment puis-je vous aider ?</h2>
-      <p>Je m'appelle Adrian Tombu et je suis tech lead freelance, spécialisé en Node.js et Typescript. J'interviens également sur des problématiques d'automatisation des déploiements dans le cloud. Contactez-moi sur <a href="https://www.linkedin.com/in/adriantombu/">LinkedIn</a> ou <a href="mailto:hello@otso.fr">par email</a> pour en savoir plus !</p>
+      <p>Je m'appelle Adrian Tombu et je suis Principal Software Engineer spécialisé en Rust et Blockchain. Contactez-moi sur <a href="https://www.linkedin.com/in/adriantombu/">LinkedIn</a> pour en savoir plus !</p>
       <p><small>Ce blog a été créé avec <a href="https://github.com/adriantombu/orion">Orion</a>, un générateur de site statique sans prétention développé avec mes petites mains.</small></p>
     </footer>
   </body>

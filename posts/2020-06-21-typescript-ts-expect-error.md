@@ -1,9 +1,8 @@
 ---
 title: A quoi sert @ts-expect-error dans Typescript ?
 description: Quelle est la différence entre @ts-ignore et @ts-expect-error
-published_at: 2020-06-21
-opengraph:
-  image: https://blog.otso.fr/images/2020-06-21-typescript-ts-expect-error/ts-expect-error-pull-request.png
+published_at: 2020-06-21 10:00:00
+image: https://blog.otso.fr/images/2020-06-21-typescript-ts-expect-error/ts-expect-error-pull-request.png
 ---
 
 # A quoi sert @ts-expect-error dans Typescript ?

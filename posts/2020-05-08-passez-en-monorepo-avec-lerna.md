@@ -1,9 +1,8 @@
 ---
 title: Comment passer au monorepo avec Lerna
 description: Suivez-moi pas à pas dans la découverte du monde fantastique des monorepos
-published_at: 2020-05-08
-opengraph:
-  image: https://blog.otso.fr/images/2020-05-08-passez-en-monorepo-avec-lerna/rainbow.gif
+published_at: 2020-05-08 10:00:00
+image: https://blog.otso.fr/images/2020-05-08-passez-en-monorepo-avec-lerna/rainbow.gif
 ---
 
 # Comment passer au monorepo avec Lerna
