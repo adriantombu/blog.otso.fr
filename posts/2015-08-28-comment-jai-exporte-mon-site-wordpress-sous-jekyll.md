@@ -39,11 +39,26 @@ Le fonctionnement de ce plugin est vraiment très simple :
 
 - Ajouter les infos suivantes à votre fichier _\_config.yml_ (modifier suivant votre besoin)
 
-<script src="https://gist.github.com/adriantombu/e68ffbcc4cddb807b27aef8afa8b7486.js"></script>
+```yaml
+page_gen:
+  - data: projects
+    template: project
+    name: slug
+    dir: portfolio
+```
 
 - Remplir votre fichier YAML _\_data/projects.yml_ avec les infos souhaitées (exemple pour un projet)
 
-<script src="https://gist.github.com/adriantombu/1078ac120a5e1f5ad3da6ed4ca0d0b7e.js"></script>
+```yaml
+- title: Application mobile Rue 89
+    description: Développement d’une application mobile hybride
+    image: application-mobile-rue-89.jpg
+    category: application-mobile
+    slug: application-mobile-rue-89
+    body: |
+      <p>J’ai utilisé le <a href=”[http://ionicframework.com/](http://ionicframework.com/)">framework Ionic</a>, qui se base sur les technologies web (AngularJs/HTML/CSS) pour la création de l’application, ainsi que de Cordova pour l’export vers une application native.</p>
+      <p>Télécharger l’app : <a href=”[https://play.google.com/store/apps/details?id=com.adriantombu.rue89rework](https://play.google.com/store/apps/details?id=com.adriantombu.rue89rework)">Google Play Store</a></p
+```
 
 - Lancer la génération du site en statique avec la commande _jekyll build_
 

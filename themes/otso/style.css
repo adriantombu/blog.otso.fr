@@ -77,13 +77,14 @@ pre {
   background: #c9cacc;
   color: #1d1f21;
   margin: 2em 0;
-  white-space: pre-line;
+  white-space: break-spaces;
 }
 
 code {
   background: #c9cacc;
   color: #1d1f21;
   padding: 2px;
+  white-space: break-spaces;
 }
 
 blockquote {
