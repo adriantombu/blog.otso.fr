@@ -19,19 +19,27 @@ Toute l’efficacité de cet outil réside dans le fait qu’il ne met en ligne 
 
 L’installation et la configuration sont assez simples, et tout est clairement détaillé dans [le fichier INSTALL.md](https://github.com/git-ftp/git-ftp/blob/master/INSTALL.md) du dépôt. Etant utilisateur Mac OSX, j’ai simplement utilisé Homebrew.
 
-    brew install git brew install curl --with-ssl --with-libssh2 brew install git-ftp
+```bash
+brew install git brew install curl --with-ssl --with-libssh2 brew install git-ftp
+```
 
 Ensuite, il vous suffira de vous rendre dans votre projet Git, et d’initialiser git-ftp.
 
-    git ftp init -u <user> -p <password> ftp://host.example.com/public_html
+```bash
+git ftp init -u <user> -p <password> ftp://host.example.com/public_html
+```
 
 Un petit git ftp push vous permettra ensuite de lancer le déploiement vers votre FTP.
 
-    git ftp push -u <user> -p <password> ftp://host.example.com/public_html
+```bash
+git ftp push -u <user> -p <password> ftp://host.example.com/public_html
+```
 
 Afin d’éviter de renseigner à chaque fois les infos de connexion et le host, vous pouvez enregistrer ces informations en **variable de configuration de votre dépôt Git**.
 
-    git config git-ftp.user john git config git-ftp.url ftp.example.com
-    git config git-ftp.password secr3t git config git-ftp.syncroot path/dir
+```bash
+git config git-ftp.user john git config git-ftp.url ftp.example.com
+git config git-ftp.password secr3t git config git-ftp.syncroot path/dir
+```
 
 Si vous voulez aller plus loin, vous trouverez toute la documentation et plus d’exemples [dans le manuel utilisateur](https://github.com/git-ftp/git-ftp/blob/master/man/git-ftp.1.md).

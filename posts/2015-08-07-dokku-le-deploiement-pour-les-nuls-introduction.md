@@ -21,7 +21,9 @@ En bref, un **vrai cauchemar**, et énormément de temps perdu.
 
 Oubliez ces **terribles moments** que vous avez certainement vécu (_j’en rêve encore la nuit_), car désormais le déploiement c’est devenu vraiment **pour les nuls** :
 
-    git push dokku master
+```bash
+git push dokku master
+```
 
 Vous voulez apprendre la **recette magique** pour arriver à ce résultat ? Suivez le guide !
 
@@ -47,11 +49,15 @@ Vous pouvez donc choisir une simple distribution Ubuntu 14.04, avec l’offre à
 
 Pour installer Dokku-alt, **connectez vous en SSH** sur votre serveur fraîchement installé, et lancez la commande suivante :
 
-    sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/dokku-alt/dokku-alt/master/bootstrap.sh)"
+```bash
+sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/dokku-alt/dokku-alt/master/bootstrap.sh)"
+```
 
 A la fin de l’installation, il vous sera demandé de vous connecter à l’url suivante :
 
-    http://<ip-du-serveur>:2000/
+```
+https://<ip-du-serveur>:2000/
+```
 
 Vous pourrez ajouter votre **clé SSH** (_champ rempli automatiquement sur Digital Ocean_), ainsi que renseigner un **nom de domaine** que vous souhaitez utiliser à la place de l’adresse IP du serveur.
 
@@ -65,17 +71,23 @@ En tant que bon développeur, vous aurez versionné votre projet sous Git. Si vo
 
 Tout d’abord, **lancez votre terminal** et positionnez vous dans le dossier de votre application. Ajoutez ensuite un **dépot distant** qui pointera sur le serveur où vous avez installé Dokku.
 
-    git remote add dokku [email protected]:my-app
+```bash
+git remote add dokku [email protected]:my-app
+```
 
 Finalement, vous pouvez enfin sortir votre baguette magique et invoquer le fameux **push magique** !
 
-    git push dokku master
+```bash
+git push dokku master
+```
 
 Dokku va s’occuper automatiquement de toute la partie **déploiement de votre application**. Celui-ci détectera automatiquement le langage que vous utilisez et effectuera les **actions nécessaires** en conséquence (_installer les dépendances composer en PHP, builder son application Jekyll, …_) dans un [container Docker](https://www.docker.com/).
 
 Une fois terminé, vous pourrez accéder à votre application fraîchement déployée à l’url suivante :
 
-    http://my-app.dokku.me
+```
+https://my-app.dokku.me
+```
 
 Et voilà, le déploiement **en toute simplicité** !
 

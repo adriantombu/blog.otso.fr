@@ -11,16 +11,35 @@ Lorsque l'on développe des tests, on est régulièrement amenés à **vérifier
 
 Voici un **exemple typique de test** tout simple où le compilateur va nous ressortir une erreur dans un test où l'on veut vérifier le comportement de la dite... erreur :
 
-<script src="https://gist.github.com/adriantombu/470302bb630ed03f325dda6aec900fcf.js"></script>
+```typescript
+function doStuff(abc: string) {
+  assert(typeof abc === "string");
+  // do some stuff
+}
+
+expect(() => {
+  doStuff(123);
+  //      ~~~
+  // error: Type 'number' is not assignable to type 'string'.
+}).toThrow();
+```
 
 Heureusement Typescript 3.9 nous apporte une nouveauté bienvenue avec **@ts-expect-error**, qui est pensée pour ce genre de cas. La différence par rapport à **@ts-ignore** étant qu'il **retournera une erreur à la compilation** si la ligne que l'on souhaite supprimer ne comporte pas d'erreur.
 
 Concrètement ce morceau de code compilera sans soucis :
 
-<script src="https://gist.github.com/adriantombu/ceb3c31f09d60e28688f16f9397ece33.js"></script>
+```typescript
+// @ts-expect-error
+doStuff(123);
+```
 
 Alors que celui-ci renverra une erreur de compilation, car le code ne comporte pas d'erreur :
 
-<script src="https://gist.github.com/adriantombu/b89c658691c9af0f55581af09c556b99.js"></script>
+```typescript
+// @ts-expect-error
+doStuff("abc");
+
+// Unused '@ts-expect-error' directive.
+```
 
 Voilà, vous savez désormais comment utiliser **@ts-expect-error** ! Vous pouvez trouver **plus de détails** sur l'article de blog annonçant la [version 3.9 de Typescript](https://devblogs.microsoft.com/typescript/announcing-typescript-3-9-beta/#ts-expect-error-comments) ainsi que sur la [pull request dédiée](https://github.com/microsoft/TypeScript/pull/36014).

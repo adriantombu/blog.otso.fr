@@ -37,7 +37,22 @@ Sur mon projet, je suis parti sur le titre, le lien, la description, une image e
 
 Au final on se retrouve donc avec une structure de données plutôt simple :
 
-<script src="https://gist.github.com/adriantombu/8553bc91c8a8b274efe610f88fb9381e.js"></script>
+```go
+type rss struct {
+	Version string `xml:"version,attr"`
+	Title string `xml:"channel>title"`
+	Link string `xml:"channel>link"`
+	Description string `xml:"channel>description"`
+	Item []rssItem `xml:"channel>item"`
+}
+
+type rssItem struct {
+	Title string `xml:"title"`
+	Link string `xml:"link"`
+	Description string `xml:"description"`
+	Image string `xml:"image"`
+}
+```
 
 ## Étape 2 : la génération du fichier RSS
 
@@ -45,7 +60,42 @@ Ici rien de bien sorcier, on va instancier une structure de type `rss`, et y int
 
 Voici le code final de la partie où l'on **génère le flux RSS** :
 
-<script src="https://gist.github.com/adriantombu/6d597a241096e204e01b45fc4e3b6d59.js"></script>
+```go
+func main() {
+  articles := []rssItem{
+    {
+      Title:       "Comment passer au monorepo avec Lerna",
+      Link:        "https://blog.otso.fr/2020-05-08-passez-en-monorepo-avec-lerna.html",
+      Description: "Suivez-moi pas à pas dans la découverte du monde fantastique des monorepos !",
+      Image:       "https://blog.otso.fr/images/2020-05-08-passez-en-monorepo-avec-lerna/rainbow.gif",
+    },
+    {
+      Title:       "Les 10 erreurs les plus fréquentes que j’ai rencontrées sur des projets Go",
+      Link:        "https://blog.otso.fr/2019-12-26-top-10-erreurs-communes-projets-golang.html",
+      Description: "Cet article représente mon top 10 des erreurs les plus fréquemment rencontrées sur mes projets Go. L’ordre n’a pas d’importance.",
+      Image:       "https://blog.otso.fr/images/2019-12-26-top-10-erreurs-communes-projets-golang/facepalm.jpg",
+    },
+  }
+
+  rssStruct := &rss{
+    Version:       "2.0",
+    Title:         "Blob Trotter",
+    Link:          "https://blog.otso.fr",
+    Description:   "Les pérégrinations d'un développeur dans le monde de Javascript et de Go",
+    Item:          articles,
+  }
+
+  data, err := xml.MarshalIndent(rssStruct, "", "    ")
+  if err != nil {
+    fmt.Println(err)
+  }
+
+  rssFeed := []byte(xml.Header + string(data))
+  if err := ioutil.WriteFile(filepath.Join("./", "rss.xml"), rssFeed, 0644); err != nil {
+    fmt.Println(err)
+  }
+}
+```
 
 ## Étape bonus : la date de publication de l'article
 
@@ -55,15 +105,36 @@ Heureusement pour nous il existe dans Go un format de date dans [les constantes 
 
 Il suffit donc de mettre à jour votre structure en ajoutant l'élément `PubDate` :
 
-<script src="https://gist.github.com/adriantombu/2442178216f524a536da77251376bee5.js"></script>
+```go
+type rssItem struct {
+  Title       string `xml:"title"`
+  Link        string `xml:"link"`
+  Description string `xml:"description"`
+  Image       string `xml:"image"`
+  PubDate     string `xml:"pubDate"`
+}
+```
 
 Dans mon générateur de blog, j'utilise le format de date `YYYY-MM-DD` pour les dates de publication de mes articles, voici donc comment la **transformer en un format RFC1123Z** compatible avec un flux RSS (_[plus d'infos sur time.Parse](https://gobyexample.com/time-formatting-parsing)_) :
 
-<script src="https://gist.github.com/adriantombu/164feaf8c24940d592d6a446eff29efd.js"></script>
+```go
+articleDate := "2020-02-06"
+publishedAt, _ := time.Parse("2006-01-02", articleDate)
+pubDate := publishedAt.Format(time.RFC1123Z)
+```
 
 Dans le même style, vous pouvez générer automatiquement la **date de dernier build** de votre flux RSS en ajoutant `LastBuildDate` dans votre channel :
 
-<script src="https://gist.github.com/adriantombu/9e312a263fedfb6fc8be20d79ec19380.js"></script>
+```go
+rssStruct := &rss{
+  Version:       "2.0",
+  Title:         "Blob Trotter",
+  Link:          "https://blog.otso.fr",
+  Description:   "Les pérégrinations d'un développeur dans le monde de Javascript et de Go",
+  LastBuildDate: time.Now().Format(time.RFC1123Z),
+  Item:          articles,
+}
+```
 
 J'espère que cet article vous aura permis de mieux comprendre **comment générer un flux RSS** en quelques lignes de Go, et de manière plus générale comment **créer un fichier XML** à partir d'une structure, en utilisant uniquement les bibliothèques standard du langage.
 

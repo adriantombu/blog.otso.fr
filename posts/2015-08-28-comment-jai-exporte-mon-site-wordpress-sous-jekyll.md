@@ -15,7 +15,9 @@ Cela fait quelques temps que j’avais dans l’idée de me **débarrasser de Wo
 
 Du coup j’y suis allé en mode subtil (!), et j’ai **aspiré toutes les pages du site** en html à l’aide de la commande suivante, trouvée sur le site de [Matt Radford](http://mattrad.uk/downloading-an-entire-website-on-a-mac-using-wget/) (thanks mate !) :
 
-    wget --recursive --page-requisites --html-extension --convert-links --restrict-file-names=windows --random-wait otso.fr
+```bash
+wget --recursive --page-requisites --html-extension --convert-links --restrict-file-names=windows --random-wait otso.fr
+```
 
 Ensuite, j’ai fait le nécessaire pour que tout fonctionne localement. En effet, certains fichiers n’avaient pas été rapatriés, et certains liens redirigeaint toujours sur le site en ligne.
 
@@ -66,7 +68,9 @@ page_gen:
 
 J’ai du faire une **petite modification du plugin**, car celui-ci remplaçait automatiquement le titre de la page par le slug, ce qui ne m’arrangeait pas vraiment
 
-    self.data['title'] = data[name]
+```
+self.data['title'] = data[name]
+``
 
 ## Jekyll Forever
 

@@ -44,15 +44,21 @@ Il existe différentes manières de gérer un monorepo, et dans cet article je m
 
 Avant toutes choses nous allons **installer Lerna** sur notre machine avec la commande suivate
 
-    npm install --global lerna
+```bash
+npm install --global lerna
+```
 
 Il est temps maintenant de **créer notre projet** `packages` qui contiendra nos différents modules NPM. Le nom du dossier importe peu, j'aurais pu utiliser `catlover` ou `unicorns`.
 
-    git init packages && cd packages
+```bash
+git init packages && cd packages
+```
 
 Une fois dans le dossier `packages` il est temps d'**initaliser Lerna** en spécifiant le tag `--independant` car je ne souhaite pas utiliser un numéro de version global identique pour tous mes projets, ceux-ci n'étant pas vraiment liés entre eux (_au contraire de [Jest](https://github.com/facebook/jest/blob/master/lerna.json) ou [Babel](https://github.com/babel/babel/blob/master/lerna.json) qui utilisent cette méthode_).
 
-    lerna init --independent
+```bash
+lerna init --independent
+```
 
 Cette commande va créer la structure de dossier suivante :
 
@@ -70,12 +76,16 @@ Comme vous pouvez vous en douter, le dossier `packages` contiendra vos différen
 
 C'est bien beau tout ça, mais comment importer mes différents modules NPM déjà existants ? Grâce à la commande magique `lerna import`, pardi ! Mais avant toutes choses, et pour que cette commande puisse fonctionner correctement, il faut créer notre tout premier commit.
 
-    git add -A
-    git commit -m "🎉 Initial commit"
+```bash
+git add -A
+git commit -m "🎉 Initial commit"
+```
 
 Il est désormais temps d'**importer nos projets un par un** avec la commande `import` de Lerna (_voir [la documentation](https://github.com/lerna/lerna/tree/master/commands/import#options) pour plus d'information sur les différents flags_), qui a l'énorme avantage de rapatrier également tout l'historique des commits afin que celui-ci ne soit pas perdu.
 
-    lerna import <dossier/du/module> --flatten --preserve-commit
+```bash
+lerna import <dossier/du/module> --flatten --preserve-commit
+```
 
 Et voici à quoi ressemble l'import réussi de mon très célèbre (vraiment pas) [module de validation de numéro de TVA](https://www.npmjs.com/package/@adriantombu/vat-number) :
 
@@ -97,7 +107,9 @@ Il est désormais temps de **nettoyer un peu tout ce qui est redondant**, à sav
 
 Une fois tous ces changements fait, on installe toutes les dépendances d'un coup avec la commande
 
-    lerna bootstrap
+```bash
+lerna bootstrap
+```
 
 Pour vous donner une idée de la structure finale du projet, vous pouvez accéder au monorepo à l'adresse suivante : [https://github.com/adriantombu/packages](https://github.com/adriantombu/packages)
 
@@ -107,8 +119,10 @@ Avant toutes choses vérifiez bien que vos **étapes de builds** seront lancées
 
 Une fois ces modifications effectuées, il ne reste plus qu'à **taguer les packages modifiés et les déployer sur NPM** avec les 2 commandes suivantes.
 
-    lerna version
-    lerna publish from-package
+```bash
+lerna version
+lerna publish from-package
+```
 
 Pour en savoir plus sur les différentes options de ces commandes, n'hésitez pas à jeter un oeil à la doc de [version](https://github.com/lerna/lerna/tree/master/commands/version) et [publish](https://github.com/lerna/lerna/tree/master/commands/publish).
 

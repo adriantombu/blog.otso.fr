@@ -97,11 +97,11 @@ Il n'y a pas d'intérêt à avoir un langage extrêmement rapide si personne ne 
 Le mot clé ici est la *simplicité*. La simplicité ne signifie pas la facilité, mais un langage simple est toujours plus facile à apprendre qu'un complexe. Comme il n'y a pas énorméments de manières de faire les choses, la majorité d'un code Go bien écrit a tendance à ressembler à la même chose. Il est facile de se plonger dans un service inconnu et de comprendre ce qu'il fait.
 
 ```go
-    fmt.Println("Gopher's Diner Breakfast Menu")
+fmt.Println("Gopher's Diner Breakfast Menu")
 
-    for dish, price := range menu {
-        fmt.Println(dish, price)
-    }
+for dish, price := range menu {
+    fmt.Println(dish, price)
+}
 ```
 
 Bien que le noyau du langage soit plutôt petit, la libraire standard Go est très puissante. Cela signifie que votre courbe d'apprentissage devra également inclure les parties de la libraire standard dont vous avez besoin, et pas uniquement la syntaxe Go. D'un autre côté, le fait de déplacer des fonctionnalités en dehors du langage vers une librairie standard signifie que vous pouvez vous concentrer uniquement sur les librairies qui vous intéressent actuellement.

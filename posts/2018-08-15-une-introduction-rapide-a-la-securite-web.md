@@ -41,7 +41,9 @@ Nous allons démarrer par un acronyme sur lequel tout le monde tombe très rapid
 
 Avez-vous déjà rencontré une erreur qui ressemble à quelque chose comme ça ?
 
-    No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'null' is therefore not allowed access.
+```
+No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'null' is therefore not allowed access.
+```
 
 Vous n’êtes clairement pas le seul. Après une recherche sur Google, vous trouverez quelqu’un qui vous dira de télécharger telle extension qui fera disparaître tous vos problèmes !
 
@@ -101,10 +103,13 @@ Lorsque vous cliquez sur un lien ou que vous écrivez l’url d’un site dans l
 
 Vous pourriez voire un en-tête de réponse qui ressemble à ça :
 
-    content-security-policy: default-src * data: blob:;script-src *.facebook.com *.fbcdn.net *.facebook.net *.google-analytics.com *.virtualearth.net *.google.com 127.0.0.1:* *.spotilocal.com:* 'unsafe-inline' 'unsafe-eval' *.atlassolutions.com blob: data: 'self';style-src data: blob: 'unsafe-inline' *;connect-src *.facebook.com facebook.com *.fbcdn.net *.facebook.net *.spotilocal.com:* wss://*.facebook.com:* https://fb.scanandcleanlocal.com:* *.atlassolutions.com attachment.fbsbx.com ws://localhost:* blob: *.cdninstagram.com 'self' chrome-extension://boadgeojelhgndaghljhdicfkmllpafd chrome-extension://dliochdbjfkdbacpmhlcpmleaejidimm;
+```
+content-security-policy: default-src * data: blob:;script-src *.facebook.com *.fbcdn.net *.facebook.net *.google-analytics.com *.virtualearth.net *.google.com 127.0.0.1:* *.spotilocal.com:* 'unsafe-inline' 'unsafe-eval' *.atlassolutions.com blob: data: 'self';style-src data: blob: 'unsafe-inline' *;connect-src *.facebook.com facebook.com *.fbcdn.net *.facebook.net *.spotilocal.com:* wss://*.facebook.com:* https://fb.scanandcleanlocal.com:* *.atlassolutions.com attachment.fbsbx.com ws://localhost:* blob: *.cdninstagram.com 'self' chrome-extension://boadgeojelhgndaghljhdicfkmllpafd chrome-extension://dliochdbjfkdbacpmhlcpmleaejidimm;
+```
 
 Cela représente la politique de sécurité du contenu de `facebook.com`. Voici à quoi cela ressemble une fois formaté pour rendre le tout plus lisible :
 
+```
     content-security-policy:
 
     default-src * data: blob:;
@@ -114,6 +119,7 @@ Cela représente la politique de sécurité du contenu de `facebook.com`. Voici 
     style-src data: blob: 'unsafe-inline' *;
 
     connect-src *.facebook.com facebook.com *.fbcdn.net *.facebook.net *.spotilocal.com:* wss://*.facebook.com:* https://fb.scanandcleanlocal.com:* *.atlassolutions.com attachment.fbsbx.com ws://localhost:* blob: *.cdninstagram.com 'self' chrome-extension://boadgeojelhgndaghljhdicfkmllpafd chrome-extension://dliochdbjfkdbacpmhlcpmleaejidimm;
+```
 
 Séparons maintenant chacune des directives :
 
@@ -154,7 +160,9 @@ C’est là que le SSL (Secure Sockets Layer) et, plus récemment, le TLS (Trans
 
 Celui-ci est assez simple. Utilisons à nouveau un en-tête Facebook comme exemple :
 
-    strict-transport-security: max-age=15552000; preload
+```
+strict-transport-security: max-age=15552000; preload
+```
 
 - **max-age** indique au navigateur pendant combien de temps les utilisateurs sont forcés d’accéder au site en HTTPS.
 - **preload** n’est pas important dans le cadre de cet article. C’est un service hébergé par Google qui ne fait pas partie de la spécification HSTS.

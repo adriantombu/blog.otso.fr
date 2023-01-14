@@ -17,7 +17,15 @@ Cet article représente mon top 10 des erreurs les plus fréquemment rencontrée
 
 Jetons un oeil à cet exemple très simple :
 
-<script src="https://gist.github.com/adriantombu/2ea3af4a0f2f660182c03bfc6d3c6eee.js"></script>
+```go
+type Status uint32
+
+const (
+    StatusOpen Status = iota
+    StatusClosed
+    StatusUnknown
+)
+```
 
 Nous avons créé ici un Enum utilisant `iota` qui se traduit par le résultat suivant :
 
@@ -27,23 +35,48 @@ Nous avons créé ici un Enum utilisant `iota` qui se traduit par le résultat s
 
 Imaginons désormais que ce type de statut fait partie d'une requête JSON qui sera marshalled/unmarshalled. On peut créer la structure suivante :
 
-<script src="https://gist.github.com/adriantombu/cc939e71a50694fe87f76b8f35e863a5.js"></script>
+```go
+type Request struct {
+    ID        int    `json:"Id"`
+    Timestamp int    `json:"Timestamp"`
+    Status    Status `json:"Status"`
+}
+```
 
 Et ensuite recevoir des requêtes comme ceci :
 
-<script src="https://gist.github.com/adriantombu/e611f574095d1da69f42cd6c6c7e9c2b.js"></script>
+```json
+{
+  "Id": 1234,
+  "Timestamp": 1563362390,
+  "Status": 0
+}
+```
 
 Rien de bien spécial ici, le statut sera converti en `StatusOpen` n'est-ce pas ?
 
 Prenons maintenant une autre requête dans laquelle le statut n'est pas renseigné (quelle qu'en soit la raison) :
 
-<script src="https://gist.github.com/adriantombu/81c051764191a258e1f37fd16980fafe.js"></script>
+```json
+{
+  "Id": 1235,
+  "Timestamp": 1563362390
+}
+```
 
 Dans ce cas, le champ statut de la structure `Request` sera intialisé à sa **valeur zéro** (pour un type uint32 : 0). Dans le cas présent, `StatusOpen` sera donc utilisé au lieu de `StatusUnknown`.
 
 La bonne pratique est donc de fixer la valeur inconnue d'un Enum à 0 :
 
-<script src="https://gist.github.com/adriantombu/cd8468fba02b1091aff50406cc378934.js"></script>
+```go
+type Status uint32
+
+const (
+    StatusUnknown Status = iota
+    StatusOpen
+    StatusClosed
+)
+```
 
 Cette fois, si le statut ne fait pas partie de la requête JSON, il sera initialisé à `StatusUnknown` comme on pourrait s'y attendre.
 
@@ -53,17 +86,37 @@ Réaliser un benchmark de la bonne façon est difficile. Il y a beaucoup de fact
 
 Une des erreurs les plus fréquentes est de se faire avoir par une pseudo-optimisation du compilateur. Prenons un exemple concret de la bibliothèque [_teivah/bitvector_](https://github.com/teivah/bitvector/) :
 
-<script src="https://gist.github.com/adriantombu/5efa19c0e55bd352d4f572104c7cbf7e.js"></script>
+```go
+func clear(n uint64, i, j uint8) uint64 {
+    return (math.MaxUint64<<j | ((1 << i) - 1)) & n
+}
+```
 
 Cette fonction supprime les bits dans une plage donnée. On pourrait en faire un benchmark de la façon suivante :
 
-<script src="https://gist.github.com/adriantombu/478924d665c652821fddefbef7cf10c6.js"></script>
+```go
+func BenchmarkWrong(b *testing.B) {
+    for i := 0; i < b.N; i++ {
+        clear(1221892080809121, 10, 63)
+    }
+}
+```
 
 Dans ce benchmark, le compilateur va détecter que `clear` est une fonction orpheline (qui n'est pas appelée par une autre fonction), il va donc la rendre **inline**. Une fois inline, il va également détecter qu'il n'y a pas **d'effets de bord**. L'appel à la fonction `clear` sera donc tout simplement supprimé, menant à des résultats inexacts.
 
 La solution peut être de déclarer le résultat dans une variable globale comme ceci :
 
-<script src="https://gist.github.com/adriantombu/cfb7f0ea9ab5c5b7369a2a2ce43b385d.js"></script>
+```go
+var result uint64
+
+func BenchmarkCorrect(b *testing.B) {
+    var r uint64
+    for i := 0; i < b.N; i++ {
+        r = clear(1221892080809121, 10, 63)
+    }
+    result = r
+}
+```
 
 Dans ce cas, le compilateur ne pourra pas déterminer si l'appel à la fonction produit un effet de bord ou pas, menant à un benchmark plus précis.
 
@@ -90,13 +143,25 @@ Une variable peut être allouée sur le **tas** (_heap_) ou la **pile** (_stack_
 
 Prenons cet exemple très simple où nous retournons une valeur :
 
-<script src="https://gist.github.com/adriantombu/ab704c4a0d0fa6b40def6dff2101cfee.js"></script>
+```go
+func getFooValue() foo {
+    var result foo
+    // Do something
+    return result
+}
+```
 
 Dans le cas présent, une variable `result` est créée par la goroutine courante. La variable est ajoutée à la stack existante. Une fois que la fonction se termine, le client reçoit une copie de cette variable. La variable elle-même est retirée de la pile. Elle existe toujours en mémoire jusqu'à ce qu'elle soit supprimée par une autre variable, mais **on ne peut plus y accéder**.
 
 Voici désormais le même exemple, mais avec un pointeur :
 
-<script src="https://gist.github.com/adriantombu/394a52e7e335bfbd5e8a577627730b13.js"></script>
+```go
+func getFooPointer() *foo {
+    var result foo
+    // Do something
+    return &result
+}
+```
 
 La variable `result` est toujours créée par la goroutine courante, mais le client va recevoir un pointeur (une copie de l'adresse de la variable). Si la variable `result` était retirée de la pile, le client de cette fonction **ne pourrait plus y accéder**.
 
@@ -104,7 +169,12 @@ Dans ce scénario, le compilateur Go va **sauvegarder** la variable `result` dan
 
 Passer par des pointeurs représente néanmoins un autre scénario. Par exemple :
 
-<script src="https://gist.github.com/adriantombu/f9203e1fda6a578aa654d935bae031b4.js"></script>
+```go
+func main()  {
+  p := &foo{}
+  f(p)
+}
+```
 
 Etant donné que l'on appelle `f` dans la même goroutine, la variable `p` n'a pas besoin d'être sauvegardée. Elle est simplement ajoutée à la pile et la sous-fonction peut y accéder.
 
@@ -130,19 +200,48 @@ Mais ne perdez pas de vue que les valeurs sont généralement le meilleur choix 
 
 Que se passe-t-il dans l'exemple ci-dessous si `f` renvoie `true` ?
 
-<script src="https://gist.github.com/adriantombu/ccb7cebadbf5b01808513a8bc80f0610.js"></script>
+```go
+
+for {
+  switch f() {
+  case true:
+    break
+  case false:
+    // Do something
+  }
+}
+```
 
 Lorsque nous appelons le `break`, celui-ci nous sortira uniquement du `switch` et **pas de la boucle for**.
 
 C'est le même problème avec :
 
-<script src="https://gist.github.com/adriantombu/f7d690ea78c4556b771d7359be1379f1.js"></script>
+```go
+for {
+  select {
+  case <-ch:
+  // Do something
+  case <-ctx.Done():
+    break
+  }
+}
+```
 
 Le `break` est lié au `select` et non à la boucle `for`.
 
 Une solution possible pour sortir d'un `for/switch` ou d'un `for/select` est d'utiliser un **break nommé** comme ceci :
 
-<script src="https://gist.github.com/adriantombu/221e8761393631d6ed7e5fb5068ccd30.js"></script>
+```go
+loop:
+    for {
+        select {
+        case <-ch:
+        // Do something
+        case <-ctx.Done():
+            break loop
+        }
+    }
+```
 
 ## La gestion des erreurs
 
@@ -159,26 +258,79 @@ Avec la biliothèque standard actuelle, il est difficile de respecter cela car n
 Regardons un exemple de ce que nous pourrions attendre d'un appel à un endpoint REST qui mène à une erreur de base de données :
 
 ```
-    unable to serve HTTP POST request for customer 1234
-        |_ unable to insert customer contract abcd
-            |_ unable to commit transaction
+unable to serve HTTP POST request for customer 1234
+    |_ unable to insert customer contract abcd
+        |_ unable to commit transaction
 ```
 
 Si nous utilisons _pkg/errors_, nous pouvons le faire de cette manière :
 
-<script src="https://gist.github.com/adriantombu/9710f74a7f042049931f7dca74aa5880.js"></script>
+```go
+func postHandler(customer Customer) Status {
+    err := insert(customer.Contract)
+    if err != nil {
+        log.WithError(err).Errorf("unable to serve HTTP POST request for customer %s", customer.ID)
+        return Status{ok: false}
+    }
+    return Status{ok: true}
+}
+
+func insert(contract Contract) error {
+    err := dbQuery(contract)
+    if err != nil {
+        return errors.Wrapf(err, "unable to insert customer contract %s", contract.ID)
+    }
+    return nil
+}
+
+func dbQuery(contract Contract) error {
+    // Do something then fail
+    return errors.New("unable to commit transaction")
+}
+```
 
 L'erreur initiale (si elle n'est pas retournée par une bibilothèque externe) peut être créée avec `errors.New`. La couche intermédiaire, `insert`, enveloppe cette erreur en y ajoutant plus de contexte. Finalement, le parent gère l'erreur en la loggant. Chaque niveau retourne ou gère donc l'erreur.
 
 Nous pourrions également vouloir vérifier la cause de l'erreur elle-même afin de renouveler l'action par exemple. Partons du principe que nous utilisons un paquet `db` d'une bibliothèque externe gérant les accès à la base de données. Cette bilbiothèque pourrait retourner une erreure transitoire (temporaire) appelée `db.DBError`. Pour déterminer si l'on doit retenter l'action ou pas, nous devons vérifier la cause de l'erreur :
 
-<script src="https://gist.github.com/adriantombu/9e4d16c718da8a7f04736f8ad0e664f4.js"></script>
+```go
+func postHandler(customer Customer) Status {
+    err := insert(customer.Contract)
+    if err != nil {
+        switch errors.Cause(err).(type) {
+        default:
+            log.WithError(err).Errorf("unable to serve HTTP POST request for customer %s", customer.ID)
+            return Status{ok: false}
+        case *db.DBError:
+            return retry(customer)
+        }
+
+    }
+    return Status{ok: true}
+}
+
+func insert(contract Contract) error {
+    err := db.dbQuery(contract)
+    if err != nil {
+        return errors.Wrapf(err, "unable to insert customer contract %s", contract.ID)
+    }
+    return nil
+}
+```
 
 Nous pouvons le faire en utilisant `errors.Cause` qui est également intégré à _pkg/errors_.
 
 Une erreur courante que je rencontre est de n'utiliser _pkg/errors_ que partiellement. Vérifier une erreur est par exemple effectué de la manière suivante :
 
-<script src="https://gist.github.com/adriantombu/427466cc5cebbf35266e6846a7066ad1.js"></script>
+```go
+switch err.(type) {
+  default:
+    log.WithError(err).Errorf("unable to serve HTTP POST request for customer %s", customer.ID)
+    return Status{ok: false}
+  case *db.DBError:
+    return retry(customer)
+}
+```
 
 Dans cet exemple, si `db.DBError` est enveloppé, cela ne relancera jamais la nouvelle tentative.
 
@@ -192,7 +344,10 @@ Parfois, nous savons par avance quelle sera la taille finale d'un slice. Par exe
 
 Je vois régulièrement des slices initialisés de la façon suivante :
 
-<script src="https://gist.github.com/adriantombu/0aeb37501c983b0e1b0d667d1c843ce4.js"></script>
+```go
+var bars []Bar
+bars := make([]Bar, 0)
+```
 
 Un slice n'est pas une structure magique. Sous le capot, il implémente une stratégie de **croissance** s'il n'y a plus assez d'espace disponible. Dans ce cas, un nouveau tableau est créé automatiquement (avec une [capacité plus grande](https://www.darkcoding.net/software/go-how-slices-grow/)) et tous les éléments sont recopiés.
 
@@ -202,11 +357,27 @@ Par conséquent, si nous connaissons la taille finale, nous pouvons :
 
 - Soit initaliser avec une taille prédéfinie :
 
-<script src="https://gist.github.com/adriantombu/2b1b0d2a4381909a02e61698672d3fa3.js"></script>
+```go
+func convert(foos []Foo) []Bar {
+    bars := make([]Bar, len(foos))
+    for i, foo := range foos {
+        bars[i] = fooToBar(foo)
+    }
+    return bars
+}
+```
 
 - Soit initialiser avec une taille nulle et une capacité prédéfinie :
 
-<script src="https://gist.github.com/adriantombu/764e3599e96884f1b54d32ad04b532ad.js"></script>
+```go 
+func convert(foos []Foo) []Bar {
+    bars := make([]Bar, 0, len(foos))
+    for _, foo := range foos {
+        bars = append(bars, fooToBar(foo))
+    }
+    return bars
+}
+```
 
 Quelle est la meilleure option ? La première est légèrement plus rapide, mais vous pourriez préférer la seconde car elle rend les choses plus consistantes : que l'on connaisse ou pas la taille initiale, l'ajout d'un élément à la fin du slice se fera avec la fonction `append`.
 
@@ -236,7 +407,10 @@ A la place, nous voulons indiquer à la bibliothèque gRPC : _Merci d'annuler ce
 
 Pour y parvenir, nous pouvons simplement créer un contexte composé. Si `parent` est le nom du contexte d'application (créé par _urfave/cli_), nous pouvons simplement faire ceci :
 
-<script src="https://gist.github.com/adriantombu/2d10b5d7be12704d16dee04ef1ab1925.js"></script>
+```go
+ctx, cancel := context.WithTimeout(parent, 100 * time.Millisecond)
+response, err := grpcClient.Send(ctx, request)
+```
 
 Les contextes ne sont pas si complexes à comprendre et c'est une des meilleures fonctionnalités du langage à mon avis.
 
@@ -263,7 +437,24 @@ Une autre erreur communément faite est de passer un nom de fichier dans une fon
 
 Disons que nous souhaitons implémenter une fonction pour compter le nombre de lignes vides dans un fichier. L'implémentation la plus naturelle pourrait ressembler à ceci :
 
-<script src="https://gist.github.com/adriantombu/e58e56a8d33638931e5f58e3f0a118f7.js"></script>
+```go
+func count(filename string) (int, error) {
+    file, err := os.Open(filename)
+    if err != nil {
+        return 0, errors.Wrapf(err, "unable to open %s", filename)
+    }
+    defer file.Close()
+
+    scanner := bufio.NewScanner(file)
+    count := 0
+    for scanner.Scan() {
+        if scanner.Text() == "" {
+            count++
+        }
+    }
+    return count, nil
+}
+```
 
 Le nom de fichier est reçu en entrée, nous pouvons donc l'ouvrir et implémenter notre logique, n'est-ce pas ?
 
@@ -277,15 +468,42 @@ Est-ce un fichier ? Le contenu d'un appel HTTP ? Un buffer ? Ce n'est désormais
 
 Das notre cas, nous pouvons même utiliser la mémoire tampon pour lire le contenu ligne par ligne. De fait, nous pouvons utiliser `bufio.Reader` et sa méthode `ReadLine` :
 
-<script src="https://gist.github.com/adriantombu/a3d1ddb9603dde30f7f7321cb68c855a.js"></script>
+```go
+func count(reader *bufio.Reader) (int, error) {
+    count := 0
+    for {
+        line, _, err := reader.ReadLine()
+        if err != nil {
+            switch err {
+            default:
+                return 0, errors.Wrapf(err, "unable to read")
+            case io.EOF:
+                return count, nil
+            }
+        }
+        if len(line) == 0 {
+            count++
+        }
+    }
+}
+```
 
 La responsabilité de l'ouverture du fichier lui-même est désormais déléguée à la fonction parente :
 
-<script src="https://gist.github.com/adriantombu/0e0291f1f54353beb9d1ca02caf306d6.js"></script>
+```go
+file, err := os.Open(filename)
+if err != nil {
+  return errors.Wrapf(err, "unable to open %s", filename)
+}
+defer file.Close()
+count, err := count(bufio.NewReader(file))
+```
 
 Grâce à cette seconde implémentation, la fonction peut être appelée **quelle que soit** la source des données. Cela **facilite** donc grandement nos tests unitaires car nous pouvons simplement créer un `bufio.Reader` à partir d'une chaine de caractères :
 
-<script src="https://gist.github.com/adriantombu/2017b89bf8fddc65f546a172faeb36e9.js"></script>
+```go
+count, err := count(bufio.NewReader(strings.NewReader("input")))
+```
 
 ## Les Goroutines et les variables de boucles
 
@@ -293,7 +511,14 @@ La dernière erreur que je recontre régulièrement est d'utiliser des goroutine
 
 Quelle est la sortie de l'exemple suivant ?
 
-<script src="https://gist.github.com/adriantombu/0d3bb95e9c93a4d1894db71756a9a950.js"></script>
+```go
+ints := []int{1, 2, 3}
+for _, i := range ints {
+  go func() {
+    fmt.Printf("%v\n", i)
+  }()
+}
+```
 
 `1 2 3` dans n'importe quel ordre ? Non !
 
@@ -301,11 +526,26 @@ Dans cet exemple, chaque goroutine **partage** la même instance de variable, ce
 
 Il y a deux manières de gérer ce problème. La première est de passer la valeur de la variable `i` dans la closure (la fonction interne) :
 
-<script src="https://gist.github.com/adriantombu/d7fd2e0b3d430001b32f4fb446eae14f.js"></script>
+```go
+ints := []int{1, 2, 3}
+for _, i := range ints {
+  go func(i int) {
+    fmt.Printf("%v\n", i)
+  }(i)
+}
+```
 
 La seconde est de créer une autre variable à l'intérieur du scope de la boucle for :
 
-<script src="https://gist.github.com/adriantombu/484e5478acdfb27a2baed98a2fb5ad76.js"></script>
+```go
+ints := []int{1, 2, 3}
+for _, i := range ints {
+  i := i
+  go func() {
+    fmt.Printf("%v\n", i)
+  }()
+}
+```
 
 Cela peut sembler contre-intuitif d'utiliser `i := i` mais c'est quelque chose de tout à fait valide. La boucle représente un scope différent. `i := i` crée donc une nouvelle instance de variable appelée `i`. Il est évident que nous pourrions la nommer différemment pour améliorer la lisibilité.
 

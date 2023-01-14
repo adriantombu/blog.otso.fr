@@ -21,7 +21,9 @@ Du coup, plutôt que prendre quelques notes dans mon coin, je me suis dit que ç
 
 La manière **la plus simple d’installer Rust** est d’utiliser `rustup` avec la commande suivante, que l’on retrouve sur [rustup.rs](https://rustup.rs/)
 
-`curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
+```bash
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
 
 Cette commande installera les 3 utilitaires suivants :
 
@@ -35,7 +37,7 @@ Passage obligé dans l’apprentissage de tout nouveau langage, nous allons cré
 
 Et... c’est tout ! La fonction a été créée automatiquement dans le fichier `src/main.rs`. Il ne reste plus qu’à lancer un petit `cargo run` qui va compiler le programme dans le dossier `target/` et le lancer dans la foulée. Magique non ?
 
-```
+```bash
 $ cargo run
 Finished dev [unoptimized + debuginfo] target(s) in 0.04s
 Running `target/debug/hello-world`

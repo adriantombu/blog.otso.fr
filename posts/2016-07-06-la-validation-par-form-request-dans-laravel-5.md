@@ -12,14 +12,30 @@ Depuis que j’utilise Laravel, j’ai toujours cherché à avoir des Controller
 
 En effet, je me suis vite retrouvé à remplir les fonctions de mes Controllers avec des **dizaines de lignes de validation** avant de pouvoir traiter mes données. Niveau simplicité on repassera !
 
-<script src="https://gist.github.com/adriantombu/f0297b837ef8fa8ba4eb143ffba0b305.js"></script>
+```php
+public function postNew(Request $request) {
+  $this->validate($request, [
+    'title' => 'required',
+    'description' =>     'required',
+    'commercialized' =>  'required',
+    'product-type' =>    'required',
+    'duration' =>        'required',
+    'feedback' =>        'required',
+    'automatic-cover' => 'image|required'
+  ]);
+
+  // ...
+}
+```
 
 ## La validation dans le Model
 
 Après quelques recherches sur les interouebs, j’ai testé la **validation dans les Models**. En gros on déplace la liste des règles de validation dans une variable (_ou une fonction, si on a besoin de quelque chose de plus complexe_) du Model, et on la récupère dans le Controlleur avant de valider. Ca donne un truc du style :
 
-    $company = new Company();
-    $this->validate( $request, $company->rules );
+```php
+$company = new Company();
+$this->validate( $request, $company->rules );
+```
 
 **Moins de code, mais plus complexe** (_j’ai vu des exemples bien plus capilotractés_), et j’estime que la validation n’a **pas sa place dans les Models** (_ouais j’suis comme ça, des fois j’ai un avis !_).
 
@@ -31,17 +47,68 @@ Comment ça fonctionne ? C’est simple ! Un coup d’artisan pour créer une Cl
 
 ## La marche à suivre
 
-    php artisan make:request UserAddRequest
+```php
+php artisan make:request UserAddRequest
+```
 
 Cette commande va **créer une Class** UserAddRequest.php dans le répertoire _app/Http/Requests/_. Voici un exemple du contenu de ce fichier, repris d’un de mes projets :
 
-<script src="https://gist.github.com/adriantombu/cb78f51bd6e34751bedebd1105d7ecce.js"></script>
+```php
+namespace App\Http\Requests;
+
+use App\Http\Requests\Request;
+
+class UserAddRequest extends Request {
+  public function authorize() {
+    return true;
+  }
+
+  public function rules() {
+    return [
+      'name'                  => 'required|min:5|max:255|unique:users,name',
+      'email'                 => 'required|email|max:255|unique:users,email',
+      'rank'                  => 'required',
+      'customer_id'           => 'required',
+      'password'              => 'required|confirmed|min:6',
+      'password_confirmation' => 'required'
+    ];
+  }
+
+  public function messages() {
+    return [
+      'name.required' => 'Le pseudo est obligatoire',
+      'name.unique'   => 'Une personne utilise déjà ce pseudo'
+    ];
+  }
+}
+```
 
 Comme vous pouvez le constater, il y a également une fonction très pratique qui permet de **personnaliser les messages d’erreurs** renvoyés. Plus d’infos sur la fonction _authorize_ dans la doc !
 
 Il ne reste plus qu’à **injecter cette Form Request dans votre fonction**, et c’est fini, adieu la validation dans le Controller, puisque celle-ci a désormais lieu **avant le chargement du Controller**.
 
-<script src="https://gist.github.com/adriantombu/b38ce6bd02d4df39b4bc6b1a79a8127b.js"></script>
+```php
+namespace App\Http\Controllers;
+
+use App\Http\Requests\UserAddRequest;
+use App\Models\User;
+
+class UserController extends Controller {
+  public function add(UserAddRequest $request) {
+    $user = new User;
+    $user->name = $request->name;
+    $user->email = $request->email;
+    $user->rank = (int) $request->rank;
+    $user->level = 1;
+    $user->customer_id = (int) $request->customer_id;
+    $user->password = bcrypt($request->password);
+
+    $user->save();
+
+    return redirect('admin/user/' . $user->id)
+  }
+}
+```
 
 ## Conclusion
 
