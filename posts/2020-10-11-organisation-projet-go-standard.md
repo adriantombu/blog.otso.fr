@@ -22,10 +22,10 @@ L'architecture de ce projet est générique de manière intentionelle et elle n'
 Ce projet est un effort communautaire. Ouvrez un ticket si vous découvrez un nouveau pattern ou si vous pensez qu'un des patterns existants devrait être mis à jour.
 
 Si vous avez besoin d'aide pour le nommage, le formattage ou le style, commencez par lancer [`gofmt`](https://golang.org/cmd/gofmt/) et [`golint`](https://github.com/golang/lint). Prenez également le temps de parcourir ces lignes directrices et recommandations :
-* https://talks.golang.org/2014/names.slide
-* https://golang.org/doc/effective_go.html#names
-* https://blog.golang.org/package-names
-* https://github.com/golang/go/wiki/CodeReviewComments
+* <https://talks.golang.org/2014/names.slide>
+* <https://golang.org/doc/effective_go.html#names>
+* <https://blog.golang.org/package-names>
+* <https://github.com/golang/go/wiki/CodeReviewComments>
 * [Style guideline for Go packages](https://rakyll.org/style-packages) (rakyll/JBD)
 
 Lisez l'article [`Go Project Layout`](https://medium.com/golang-learn/go-project-layout-e5213cdcfaa2) pour avoir des informations additionnelles.
