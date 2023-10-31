@@ -1,6 +1,6 @@
 ---
 title: Comment créer un service systemd pour une application Rust sur Linux  
-description: Découvrez comment utiliser le cache dans Github Actions pour accélérer votre workflow 
+description: systemd permet de relancer automatiquement une application après un reboot du serveur 
 published_at: 2023-09-29 10:00:00
 ---
 
