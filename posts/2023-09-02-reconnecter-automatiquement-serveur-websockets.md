@@ -1,10 +1,10 @@
 ---
-title: Comment se reconnecter automatiquement à un serveur WebSockets
+title: Se reconnecter automatiquement à un serveur WebSockets
 description: Ou comment utiliser setInterval et clearInterval à notre avantage
 published_at: 2023-09-02 10:00:00
 ---
 
-# Comment se reconnecter automatiquement à un serveur WebSockets
+# Se reconnecter automatiquement à un serveur WebSockets
 
 J'ai récemment repris en main une **application web de chat instantané** que je n'avais pas mise à jour depuis des années. Elle est basée sur React pour le frontend et Firebase pour l'authentification et la base de données en temps réel.
 

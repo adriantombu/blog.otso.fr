@@ -1,10 +1,10 @@
 ---
-title: Comment activer le mode offline de la librairie Rust sqlx
+title: Activer le mode offline de la librairie Rust sqlx
 description: Voici un moyen simple de se passer d'une base de donnée active pour compiler son programme Rust avec sqlx
 published_at: 2023-08-13 10:00:00
 ---
 
-# Comment activer le mode offline de la librairie Rust SQLx
+# Activer le mode offline de la librairie Rust SQLx
 
 [SQLx](https://crates.io/crates/sqlx) est une librairie Rust qui permet de s'interfacer avec une base de données et de **vérifier à la compilation les schémas et requêtes SQL** écrites dans notre code grâce aux macros `sqlx::query!` ou `sqlx::query_as!` (*il faut activer la feature `"macros"` pour les rendre disponibles*). C'est un outil très puissant, qui supporte également les [migrations](https://github.com/launchbadge/sqlx/tree/main/sqlx-cli#create-and-run-migrations).
 
