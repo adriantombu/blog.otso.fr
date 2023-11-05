@@ -1,6 +1,6 @@
 ---
 title: Compiler une API Rust en WebAssembly et la déployer sur Cloudflare Workers  
-description:  Une introduction rapide au déploiement serverless sur un worker Cloudflare grâce à WASM
+description: Une introduction rapide au déploiement serverless sur un worker Cloudflare grâce à WASM
 published_at: 2023-11-03 10:00:00
 ---
 
