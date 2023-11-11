@@ -1,3 +1,4 @@
+#!/bin/bash
 if ! command -v cargo &> /dev/null
 then
     echo "cargo could not be found, installing rust on the machine"
