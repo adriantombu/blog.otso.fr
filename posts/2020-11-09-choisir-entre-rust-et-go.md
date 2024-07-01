@@ -3,6 +3,7 @@ title: Que choisir entre Rust et Go
 description: Dans cet article, j'essaie de vous donner les clés afin de pouvoir décider qui de Go ou Rust est le choix le plus intéressant selon votre projet.
 published_at: 2020-11-09 10:00:00
 image: https://blog.otso.fr/images/2020-11-09-choisir-entre-rust-et-go/golang-ou-rust.png
+categories: [ rust, golang ]
 ---
 
 > Ce texte est une traduction de l’article [Rust vs Go](https://bitfieldconsulting.com/golang/rust-vs-go) avec l’aimable autorisation de son auteur [John Arundel](https://twitter.com/bitfield)

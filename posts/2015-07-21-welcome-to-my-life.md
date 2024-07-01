@@ -3,6 +3,7 @@ title: Welcome to my life !
 description: Naissance d’un enième blog de développeur web (mais belge, cette fois)
 published_at: 2015-07-21 10:00:00
 image: https://i.imgur.com/rKmltf8.jpg
+categories: [ news ]
 ---
 
 # Welcome to my life !

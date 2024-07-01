@@ -2,6 +2,7 @@
 title: Réduire la taille d'un binaire Rust  
 description: Cet article est une traduction du dépôt Github min-sized-rust
 published_at: 2023-11-05 10:00:00
+categories: [ rust ]
 ---
 
 # Réduire la taille d'un binaire Rust

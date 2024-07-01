@@ -38,8 +38,15 @@
       <h1>{title}</h1>
       <p>{description}</p>
 
+      <nav class="categories">
+        |
+        {{for category in posts.categories}}
+          <a href="category/{category}.html">#{category}</a> |
+        {{endfor}}
+      </nav>
+
       <ul class="articles">
-        {{for post in posts}}
+        {{for post in posts.posts}}
           <li>
             <small>.{post.published_at}</small> <a href="{post.path}">{post.title}</a>
           </li>

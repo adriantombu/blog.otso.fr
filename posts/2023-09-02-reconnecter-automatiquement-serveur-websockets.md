@@ -2,6 +2,7 @@
 title: Se reconnecter automatiquement à un serveur WebSockets
 description: Ou comment utiliser setInterval et clearInterval à notre avantage
 published_at: 2023-09-02 10:00:00
+categories: [ javascript ]
 ---
 
 # Se reconnecter automatiquement à un serveur WebSockets

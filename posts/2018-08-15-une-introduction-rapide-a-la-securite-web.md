@@ -3,6 +3,7 @@ title: Une introduction rapide à la sécurité web
 description: Cet article vous expliquera la signification des acronymes les plus utilisés dans la sécurité web de manière simple et compréhensible
 published_at: 2018-08-15 10:00:00
 image: https://blog.otso.fr/images/2018-08-15-une-introduction-rapide-a-la-securite-web/cadenas.jpg
+categories: [ tech ]
 ---
 
 # Une introduction rapide à la sécurité web

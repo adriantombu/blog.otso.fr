@@ -2,6 +2,7 @@
 title: Accélérer le temps de build dans Github Actions pour un programme Rust  
 description: Découvrez comment utiliser le cache dans Github Actions pour accélérer votre workflow 
 published_at: 2023-10-15 10:00:00
+categories: [ rust ]
 ---
 
 # Accélérer le temps de build dans Github Actions pour un programme Rust

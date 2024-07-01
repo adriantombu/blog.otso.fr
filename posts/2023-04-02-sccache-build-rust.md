@@ -2,6 +2,7 @@
 title: Utiliser sccache avec Rust pour optimiser ses temps de compilation sur MacOS
 description: Une astuce simple et rapide à mettre en place qui va vous faire gagner énormement de temps !
 published_at: 2023-04-02 10:00:00
+categories: [ rust ]
 ---
 
 # Utiliser sccache avec Rust pour optimiser ses temps de compilation

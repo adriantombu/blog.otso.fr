@@ -3,6 +3,7 @@ title: Le HTTPS expliqué avec des pigeons voyageurs
 description: La cryptographie est complexe à appréhender, rien de tel que des pigeons voyageurs pour en expliquer son fontionnement !
 published_at: 2018-07-27 10:00:00
 image: https://blog.otso.fr/images/2018-07-27-le-https-explique-avec-des-pigeons-voyageurs/pigeon-voyageur.png
+categories: [ tech ]
 ---
 
 # Le HTTPS expliqué avec des pigeons voyageurs

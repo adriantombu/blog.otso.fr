@@ -2,6 +2,7 @@
 title: Comment créer un service systemd pour une application Rust sur Linux  
 description: systemd permet de relancer automatiquement une application après un reboot du serveur 
 published_at: 2023-09-29 10:00:00
+categories: [ rust ]
 ---
 
 # Comment créer un service systemd pour une application Rust sur Linux

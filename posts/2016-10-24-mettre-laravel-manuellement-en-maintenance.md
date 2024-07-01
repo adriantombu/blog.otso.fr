@@ -3,6 +3,7 @@ title: Mettre manuellement votre application Laravel en maintenance
 description: Il suffit parfois d'un seul fichier...
 published_at: 2016-10-24 10:00:00
 image: https://blog.otso.fr/images/2016-10-24-mettre-laravel-manuellement-en-maintenance/laravel-be-right-back.png
+categories: [ php ]
 ---
 
 # Mettre manuellement votre application Laravel en maintenance

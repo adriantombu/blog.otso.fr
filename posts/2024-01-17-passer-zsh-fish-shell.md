@@ -2,6 +2,7 @@
 title: Migration de shell de zsh à fish  
 description: Un tutoriel pas à pas pour passer du shell zsh à fish
 published_at: 2024-01-17 10:00:00
+categories: [ tech ]
 ---
 
 # Migration de shell de zsh à fish

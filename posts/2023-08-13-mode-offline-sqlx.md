@@ -2,6 +2,7 @@
 title: Activer le mode offline de la librairie Rust sqlx
 description: Voici un moyen simple de se passer d'une base de donnée active pour compiler son programme Rust avec sqlx
 published_at: 2023-08-13 10:00:00
+categories: [ rust ]
 ---
 
 # Activer le mode offline de la librairie Rust SQLx
