@@ -18,17 +18,17 @@
 
     <title>{title}</title>
 
-    <link rel="icon" href="./assets/favicon.png" />
+    <link rel="icon" href="{canonical}/assets/favicon.png" />
     <link rel="canonical" href="{canonical}" />
-    <link href="./assets/style.css" rel="stylesheet" type="text/css" />
-    <link href="./rss.xml" type="application/rss+xml" />
+    <link href="{canonical}/assets/style.css" rel="stylesheet" type="text/css" />
+    <link href="{canonical}/rss.xml" type="application/rss+xml" />
   </head>
 
   <body>
     <header>
       <nav>
         <a href="https://otso.fr">Accueil</a> &bull;
-        <a href="https://blog.otso.fr">Blog</a> &bull;
+        <a href="{canonical}">Blog</a> &bull;
         <a href="https://otso.fr/conditions-generales-de-vente.html">CGV</a> &bull;
         <a href="https://otso.fr/mentions-legales.html">Mentions légales</a>
       </nav>
@@ -41,14 +41,14 @@
       <nav class="categories">
         |
         {{for category in posts.categories}}
-          <a href="category/{category}.html">#{category}</a> |
+          <a href="{canonical}category/{category}.html">#{category}</a> |
         {{endfor}}
       </nav>
 
       <ul class="articles">
         {{for post in posts.posts}}
           <li>
-            <small>.{post.published_at}</small> <a href="{post.path}">{post.title}</a>
+            <small>.{post.published_at}</small> <a href="{canonical}{post.path}">{post.title}</a>
           </li>
         {{endfor}}
       </ul>

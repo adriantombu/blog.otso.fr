@@ -20,17 +20,17 @@
 
     <title>{post.title} - {config.site_name}</title>
 
-    <link rel="icon" href="./assets/favicon.png" />
+    <link rel="icon" href="{config.base_url}assets/favicon.png" />
     <link rel="canonical" href="{post.canonical}" />
-    <link href="./assets/style.css" rel="stylesheet" type="text/css" />
-    <link href="./rss.xml" type="application/rss+xml" />
+    <link href="{config.base_url}assets/style.css" rel="stylesheet" type="text/css" />
+    <link href="{config.base_url}rss.xml" type="application/rss+xml" />
   </head>
 
   <body>
     <header>
       <nav>
         <a href="https://otso.fr">Accueil</a> &bull;
-        <a href="https://blog.otso.fr">Blog</a> &bull;
+        <a href="{config.base_url}">Blog</a> &bull;
         <a href="https://otso.fr/conditions-generales-de-vente.html">CGV</a> &bull;
         <a href="https://otso.fr/mentions-legales.html">Mentions légales</a>
       </nav>
@@ -46,6 +46,6 @@
       <p><small>Cet article de blog a été créé avec <a href="https://github.com/adriantombu/orion">Orion</a>, un générateur de site statique sans prétention développé avec ❤</small></p>
     </footer>
 
-    <script type="text/javascript" src="./assets/prism.js"></script>
+    <script type="text/javascript" src="{config.base_url}/assets/prism.js"></script>
   </body>
 </html>
