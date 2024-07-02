@@ -2,7 +2,7 @@
 title: La validation par Form Request dans Laravel 5.2
 description: Les différentes manières de valider ses données et celle qui me parait la plus pratique à mettre en place
 published_at: 2016-07-06 10:00:00
-categories: [ php ]
+categories: [ tech ]
 ---
 
 # La validation par Form Request dans Laravel 5.2
