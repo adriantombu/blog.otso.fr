@@ -2,7 +2,7 @@
 title: La recherche d’emploi quand on n’a aucune expérience
 description: Petit manuel d’utilisation de l’étudiant développeur qui débarque sur le marché du travail
 published_at: 2015-12-05 10:00:00
-categories: [ opinion ]
+categories: [ news ]
 ---
 
 # La recherche d’emploi quand on n’a aucune expérience

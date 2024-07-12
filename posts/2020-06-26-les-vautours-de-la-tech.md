@@ -3,7 +3,7 @@ title: Les vautours de la tech
 description: Et si on parlait de ces intermédiaires toxiques qui se gavent sur le dos des clients et des freelances ?
 published_at: 2020-06-26 10:00:00
 image: https://blog.otso.fr/images/2020-06-26-les-vautours-de-la-tech/we-are-doomed.gif
-categories: [ opinion ]
+categories: [ news ]
 ---
 
 # Les vautours de la tech
