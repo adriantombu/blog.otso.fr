@@ -2,7 +2,7 @@
 title: "Retrofit d'une Time Capsule Apple: épisode 1"
 description: Comment réutiliser des éléments d'une Time Capsule pour y installer Home Assistant
 published_at: 2024-07-12 10:00:00
-categories: [ domotique ]
+categories: [ tech ]
 ---
 
 # Retrofit d'une Time Capsule Apple: épisode 1
@@ -14,3 +14,5 @@ Après plus de **dix ans de bons et loyaux services**, ma Time Capsule Apple a r
 L'idée de base est de récupérer au minimum l'alimentation et le boîtier de la Time Capsule pour y installer un Raspberry Pi5 avec un SSD et un ventilateur, en utilisant l'impression 3d pour faire tout tenir à l'intérieur. Le but est de **conserver le design de la Time Capsule** tout en y ajoutant des fonctionnalités modernes permettant de la transformer en un **hub domotique avec Home Assistant**.
 
 ![Photos des différentes pièce du projet](images/2024-07-12-retrofit-time-capsule-episode-1/time-capsule-apple-demontee.jpg)
+
+Edit: on restera sur un épisode 1 uniquement, car par manque de temps j'ai finalement simplement imprimé en 3D un boitier pour le Raspberry Pi5 !

@@ -3,7 +3,7 @@ title: Dokku, le déploiement pour les nuls ! (introduction)
 description: Le FTP c’est has been, ‘git push dokku master’ c’est l’avenir !
 published_at: 2015-08-07 10:00:00
 image: https://blog.otso.fr/images/2015-08-07-dokku-le-deploiement-pour-les-nuls-introduction/bob-eponge-arc-en-ciel.gif
-categories: [ tech ]
+categories: [ devops ]
 ---
 
 # Dokku, le déploiement pour les nuls ! (introduction)
